@@ -36,8 +36,9 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
      name='simplemachinesforum',
-     version='0.1.3',
+     version='0.1.4',
      author="Oliver Zehentleitner",
+     url="https://github.com/bithon/python-simplemachinesforum",
      scripts=['simplemachinesforum.py'],
      description="Python request API to simplemachinesforum",
      long_description=long_description,
@@ -46,7 +47,6 @@ setuptools.setup(
      install_requires=[],
      keywords='simple machines forum, python, new post, create post, simplemachinesforum, api',
      project_urls={
-         'Source': 'https://github.com/bithon/python-simplemachinesforum',
          'Wiki': 'https://github.com/bithon/python-simplemachinesforum/wiki',
      },
      packages=setuptools.find_packages(),
