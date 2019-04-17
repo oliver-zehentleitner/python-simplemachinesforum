@@ -2,10 +2,20 @@
 Python request API to Simple Machines Forum: https://www.simplemachines.org/
 
 ## What does it can?
-- It can create a new Topic from a remote Server, all it needs is a valid user account to login.
+- It can create a new Topic from a remote server, all it needs is a valid user account to login.
 
 ## Installation
 `pip install simplemachinesforum`
+
+## How to create a new topic?
+```
+smf_url = "https://www.any-simplemachinesforum.com"
+smf_user = "user_name"
+smf_pass = "password"
+smf = SimpleMachinesForum(smf_url, smf_user, smf_pass)
+# 1 = board id:
+smf.new_topic(1, "subject", "This is the message to post!")
+```
 
 ## Project, code and downloads: 
 https://github.com/bithon/python-simplemachinesforum
