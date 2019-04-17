@@ -32,6 +32,6 @@ https://github.com/bithon/python-simplemachinesforum/wiki
 Please open a new issue:
 https://github.com/bithon/python-simplemachinesforum/issues
 
-If you report a bug, try first the latest release via [download](https://github.com/unicorn-data-analysis/unicorn-binance-websocket-api/releases) 
-or with `pip install python-simplemachinesforum --upgrade`. If the issue still exists, provide the error trace, OS 
+If you report a bug, try first the latest release via [download](https://github.com/bithon/python-simplemachinesforum/releases) 
+or with `pip install simplemachinesforum --upgrade`. If the issue still exists, provide the error trace, OS 
 and python version and explain how to reproduce the error. A demo script is appreciated.
