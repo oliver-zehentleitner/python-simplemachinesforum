@@ -10,7 +10,7 @@ Python request API to Simple Machines Forum: https://www.simplemachines.org/
 ## Installation
 `pip install simplemachinesforum`
 
-https://pypi.org/project/python-simplemachinesforum/
+https://pypi.org/project/simplemachinesforum/
 ## How to create a new topic?
 ```
 from simplemachinesforum.simplemachinesforum import SimpleMachinesForum
