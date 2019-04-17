@@ -10,8 +10,10 @@ Python request API to Simple Machines Forum: https://www.simplemachines.org/
 ## Installation
 `pip install simplemachinesforum`
 
+https://pypi.org/project/python-simplemachinesforum/
 ## How to create a new topic?
 ```
+from simplemachinesforum.simplemachinesforum import SimpleMachinesForum
 smf_url = "https://www.any-simplemachinesforum.com"
 smf_user = "user_name"
 smf_pass = "password"

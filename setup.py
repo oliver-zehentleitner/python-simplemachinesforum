@@ -35,8 +35,8 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
-     name='python-simplemachinesforum',
-     version='0.1.0',
+     name='simplemachinesforum',
+     version='0.1.3',
      author="Oliver Zehentleitner",
      scripts=['simplemachinesforum.py'],
      description="Python request API to simplemachinesforum",
