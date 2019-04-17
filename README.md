@@ -5,7 +5,7 @@
 Python request API to Simple Machines Forum: https://www.simplemachines.org/
 
 ## What does it can?
-- It can create a new topic on a remote simple machines forum installation over the network, all it needs is a valid user account to login.
+- It can create a new topic on a remote simple machines forum over the network, all it needs is a valid user account to login.
 
 ## Installation
 `pip install simplemachinesforum`
