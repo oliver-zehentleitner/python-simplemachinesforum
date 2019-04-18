@@ -36,7 +36,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
      name='simplemachinesforum',
-     version='0.1.5',
+     version='0.2.0',
      author="Oliver Zehentleitner",
      url="https://github.com/bithon/python-simplemachinesforum",
      scripts=['simplemachinesforum.py'],

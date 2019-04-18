@@ -61,7 +61,7 @@ class SimpleMachinesForum(object):
         response = session.post(self.smf_url + login_url2, data=payload)
         print("Login Response: %s" % response)
 
-    def new_topic(self, board, subject, msg):
+    def new_topic(self, board, subject, msg, icon="xx", notify=0, lock=0, sticky=0):
         # start a new topic
         post_url1 = "index.php?action=post;board=" + str(board)
         post_url2 = "index.php?action=post2;start=0;board=" + str(board) + ".0"
@@ -74,15 +74,15 @@ class SimpleMachinesForum(object):
                 # post the post :)
                 payload = {'topic': 0,
                            'subject': str(subject),
-                           'icon': 'xx',
+                           'icon': str(icon),
                            'sel_face': '',
                            'sel_size': '',
                            'sel_color': '',
                            'message': str(msg),
                            'message_mode': 0,
-                           'notify': 0,
-                           'lock': 0,
-                           'sticky': 0,
+                           'notify': notify,
+                           'lock': lock,
+                           'sticky': sticky,
                            'move': 0,
                            'attachment[]': "",
                            'additional_options': 0,

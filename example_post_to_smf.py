@@ -4,8 +4,8 @@ from simplemachinesforum.simplemachinesforum import SimpleMachinesForum
 
 # config
 smf_url = "https://www.any-simplemachinesforum.com"
-smf_user = "BOT"
-smf_pass = ""
+smf_user = "user"
+smf_pass = "pass"
 
 # create instance
 smf = SimpleMachinesForum(smf_url, smf_user, smf_pass)
