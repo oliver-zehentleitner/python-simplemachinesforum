@@ -69,24 +69,27 @@ class SimpleMachinesForum(object):
             self._login(session)
             # get seqnum
             post_page = session.get(self.smf_url + post_url1, cookies=session.cookies)
-            seqnum = post_page.text.split("<input type=\"hidden\" name=\"seqnum\" value=\"")[1].split("\"")[0]
-            # post the post :)
-            payload = {'topic': 0,
-                       'subject': str(subject),
-                       'icon': 'xx',
-                       'sel_face': '',
-                       'sel_size': '',
-                       'sel_color': '',
-                       'message': str(msg),
-                       'message_mode': 0,
-                       'notify': 0,
-                       'lock': 0,
-                       'sticky': 0,
-                       'move': 0,
-                       'attachment[]': "",
-                       'additional_options': 0,
-                       str(self.smf_random_input): str(self.smf_session_id),
-                       'seqnum': str(seqnum)}
-            response = requests.post(self.smf_url + post_url2, data=payload, cookies=session.cookies)
-            print("Response: %s" % response)
+            try:
+                seqnum = post_page.text.split("<input type=\"hidden\" name=\"seqnum\" value=\"")[1].split("\"")[0]
+                # post the post :)
+                payload = {'topic': 0,
+                           'subject': str(subject),
+                           'icon': 'xx',
+                           'sel_face': '',
+                           'sel_size': '',
+                           'sel_color': '',
+                           'message': str(msg),
+                           'message_mode': 0,
+                           'notify': 0,
+                           'lock': 0,
+                           'sticky': 0,
+                           'move': 0,
+                           'attachment[]': "",
+                           'additional_options': 0,
+                           str(self.smf_random_input): str(self.smf_session_id),
+                           'seqnum': str(seqnum)}
+                response = requests.post(self.smf_url + post_url2, data=payload, cookies=session.cookies)
+                print("Response: %s" % response)
+            except KeyError:
+                pass
 
