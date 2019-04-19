@@ -4,7 +4,7 @@
 Python request API to Simple Machines Forum: https://www.simplemachines.org/
 
 ## Important
-A forum is for humans, please use this piece of software only in combination with YOUR OWNN FORUM or by order of the forum owner itself to provide a valuable service. Be aware that bots are not tolerated on most boards and its use will lead to a ban.
+A forum is for humans, please use this piece of software only in combination with YOUR OWN FORUM or by order of the forum owner itself to provide a valuable service. Be aware that bots are not tolerated on most boards and its use will lead to a ban.
 
 ## What does it can?
 - It can create a new topic on a remote simple machines forum over the network, all it needs is a valid user account to login.
