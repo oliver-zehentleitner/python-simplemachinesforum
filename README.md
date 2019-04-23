@@ -37,3 +37,7 @@ https://github.com/bithon/python-simplemachinesforum/issues
 If you report a bug, try first the latest release via [download](https://github.com/bithon/python-simplemachinesforum/releases) 
 or with `pip install simplemachinesforum --upgrade`. If the issue still exists, provide the error trace, OS 
 and python version and explain how to reproduce the error. A demo script is appreciated.
+
+## Contributing
+`python-simplemachinesforum` is an open source project which welcomes contributions which can be anything from simple 
+documentation fixes to new features. To contribute, fork the project on [GitHub](https://github.com/bithon/python-simplemachinesforum) and send a pull request.
