@@ -4,7 +4,7 @@
 ![PyPI - Status](https://img.shields.io/pypi/status/simplemachinesforum.svg) 
 ![PyPI - yes](https://img.shields.io/badge/PyPI-yes-brightgreen.svg?color=orange) 
 ![PyPI - Wheel](https://img.shields.io/pypi/wheel/unicorn-binance-websocket-api.svg?label=PyPI%20wheel&color=orange) 
-![PyPI - Downloads](https://img.shields.io/pypi/dm/unicorn-binance-websocket-api.svg?label=PyPI%20downloads&color=orange)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/simplemachinesforum.svg?label=PyPI%20downloads&color=orange)
 
 # python-simplemachinesforum
 Python request API to Simple Machines Forum: https://www.simplemachines.org/
