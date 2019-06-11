@@ -1,4 +1,10 @@
-![GitHub release](https://img.shields.io/github/release/bithon/python-simplemachinesforum.svg) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/bithon/python-simplemachinesforum.svg) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/simplemachinesforum.svg) ![PyPI - Status](https://img.shields.io/pypi/status/simplemachinesforum.svg) ![PyPI - yes](https://img.shields.io/badge/PyPI-yes-brightgreen.svg) ![PyPI - Wheel](https://img.shields.io/pypi/wheel/simplemachinesforum.svg) ![GitHub](https://img.shields.io/github/license/bithon/python-simplemachinesforum.svg) 
+![GitHub release](https://img.shields.io/github/release/bithon/python-simplemachinesforum.svg) 
+![GitHub](https://img.shields.io/github/license/bithon/python-simplemachinesforum.svg?color=blue) 
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/simplemachinesforum.svg) 
+![PyPI - Status](https://img.shields.io/pypi/status/simplemachinesforum.svg) 
+![PyPI - yes](https://img.shields.io/badge/PyPI-yes-brightgreen.svg?color=orange) 
+![PyPI - Wheel](https://img.shields.io/pypi/wheel/unicorn-binance-websocket-api.svg?label=PyPI%20wheel&color=orange) 
+![PyPI - Downloads](https://img.shields.io/pypi/dm/unicorn-binance-websocket-api.svg?label=PyPI%20downloads&color=orange)
 
 # python-simplemachinesforum
 Python request API to Simple Machines Forum: https://www.simplemachines.org/
