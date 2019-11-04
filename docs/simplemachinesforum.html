@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>simplemachinesforum package &#8212; python-simplemachinesforum 0.2.1 documentation</title>
+    <link rel="stylesheet" href="_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="shortcut icon" type="image/png" href="_static/py.png" />
+    
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+    
+    <li><img src="_static/github-logo.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://github.com/oliver-zehentleitner/python-simplemachinesfourm">python-simplemachinesforum</a> &#187;</li>
+    
+    
+    <a href="index.html">python-simplemachinesforum 0.2.1 documentation</a> &#187;
+    
+
+    <li class="right">
+        <a href="search.html" title="Search">search</a>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="simplemachinesforum-package">
+<h1>simplemachinesforum package<a class="headerlink" href="#simplemachinesforum-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-simplemachinesforum.simplemachinesforum">
+<span id="simplemachinesforum-simplemachinesforum-module"></span><h2>simplemachinesforum.simplemachinesforum module<a class="headerlink" href="#module-simplemachinesforum.simplemachinesforum" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="simplemachinesforum.simplemachinesforum.SimpleMachinesForum">
+<em class="property">class </em><code class="sig-prename descclassname">simplemachinesforum.simplemachinesforum.</code><code class="sig-name descname">SimpleMachinesForum</code><span class="sig-paren">(</span><em class="sig-param">smf_url</em>, <em class="sig-param">smf_user</em>, <em class="sig-param">smf_pass</em><span class="sig-paren">)</span><a class="headerlink" href="#simplemachinesforum.simplemachinesforum.SimpleMachinesForum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Python API to SimpleMachinesForum</p>
+<dl class="method">
+<dt id="simplemachinesforum.simplemachinesforum.SimpleMachinesForum.new_topic">
+<code class="sig-name descname">new_topic</code><span class="sig-paren">(</span><em class="sig-param">board</em>, <em class="sig-param">subject</em>, <em class="sig-param">msg</em>, <em class="sig-param">icon='xx'</em>, <em class="sig-param">notify=0</em>, <em class="sig-param">lock=0</em>, <em class="sig-param">sticky=0</em><span class="sig-paren">)</span><a class="headerlink" href="#simplemachinesforum.simplemachinesforum.SimpleMachinesForum.new_topic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new topic on a remote simple machines forum over the network, all it needs is a
+valid user account to login.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>board</strong> (<em>int</em>) – The board ID (e.g. ‘1’)</p></li>
+<li><p><strong>subject</strong> (<em>str</em>) – The subject of the new topic.</p></li>
+<li><p><strong>msg</strong> (<em>str</em>) – The body text of the new topic.</p></li>
+<li><p><strong>icon</strong> (<em>str</em>) – The topic icon, choose: xx = Standard, thumbup = Thumb Up, thumbdown = Thumb Down, exclamation =
+Exclamation point, question = Question mark, lamp = Lamp, smiley = Smiley, angry = Angry, cheesy = Cheesy,
+wink = Wink, grin = Grin, sad = Sad</p></li>
+<li><p><strong>notify</strong> (<em>int</em>) – Set notifications (0 = no, 1 = yes)</p></li>
+<li><p><strong>lock</strong> (<em>int</em>) – Lock the new topic (0 = no, 1 = yes)</p></li>
+<li><p><strong>sticky</strong> (<em>int</em>) – Set sticky (0 = no, 1 = yes)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-simplemachinesforum">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-simplemachinesforum" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">simplemachinesforum package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-simplemachinesforum.simplemachinesforum">simplemachinesforum.simplemachinesforum module</a></li>
+<li><a class="reference internal" href="#module-simplemachinesforum">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/simplemachinesforum.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+    
+    <li><img src="_static/github-logo.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://github.com/oliver-zehentleitner/python-simplemachinesfourm">python-simplemachinesforum</a> &#187;</li>
+    
+    
+    <a href="index.html">python-simplemachinesforum 0.2.1 documentation</a> &#187;
+    
+
+    <li class="right">
+        <a href="search.html" title="Search">search</a>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="copyright.html">Copyright</a> 2019, Oliver Zehentleitner.
+    <br />
+
+    Last updated on None.
+    <a href="https://github.com/oliver-zehentleitner/python-simplemachinesfourm/issues">Found a bug</a>?
+    <br />
+
+    <img src="_static/py.png" alt=""/>
+    The <a href="https://www.python.org">Python</a> Software Foundation is a non-profit corporation.
+    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.2.1
+        with <a href="https://github.com/oliver-zehentleitner/python-docs-theme-technopathy">python-docs-theme-technopathy</a>
+        theme by <a href="https://about.me/oliver-zehentleitner/getstarted">Oliver Zehentleitner</a>.
+    <br />
+        <a href="https://www.technopathy.club/2019/11/03/use-python-sphinx-on-github-pages-with-html-and-an-indivdual-template/">
+    Create a GitHub Page like this one!</a>
+    </div>
+
+  </body>
+</html>

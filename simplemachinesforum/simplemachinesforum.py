@@ -37,6 +37,7 @@ import requests
 class SimpleMachinesForum(object):
     """
     Python API to SimpleMachinesForum
+
     """
     def __init__(self, smf_url, smf_user, smf_pass):
         self.smf_url = smf_url
@@ -77,8 +78,8 @@ class SimpleMachinesForum(object):
         :param msg: The body text of the new topic.
         :type msg: str
         :param icon: The topic icon, choose: xx = Standard, thumbup = Thumb Up, thumbdown = Thumb Down, exclamation =
-        Exclamation point, question = Question mark, lamp = Lamp, smiley = Smiley, angry = Angry, cheesy = Cheesy,
-        wink = Wink, grin = Grin, sad = Sad
+                     Exclamation point, question = Question mark, lamp = Lamp, smiley = Smiley, angry = Angry, cheesy = Cheesy,
+                     wink = Wink, grin = Grin, sad = Sad
         :type icon: str
         :param notify: Set notifications (0 = no, 1 = yes)
         :type notify: int
@@ -86,7 +87,9 @@ class SimpleMachinesForum(object):
         :type lock: int
         :param sticky: Set sticky (0 = no, 1 = yes)
         :type sticky: int
+
         """
+
         # start a new topic
         post_url1 = "index.php?action=post;board=" + str(board)
         post_url2 = "index.php?action=post2;start=0;board=" + str(board) + ".0"
