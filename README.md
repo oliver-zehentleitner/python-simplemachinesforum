@@ -1,5 +1,5 @@
-![GitHub release](https://img.shields.io/github/release/bithon/python-simplemachinesforum.svg) 
-![GitHub](https://img.shields.io/github/license/bithon/python-simplemachinesforum.svg?color=blue) 
+![GitHub release](https://img.shields.io/github/release/oliver-zehentleitner/python-simplemachinesforum.svg) 
+![GitHub](https://img.shields.io/github/license/oliver-zehentleitner/python-simplemachinesforum.svg?color=blue) 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/simplemachinesforum.svg) 
 ![PyPI - Status](https://img.shields.io/pypi/status/simplemachinesforum.svg) 
 ![PyPI - yes](https://img.shields.io/badge/PyPI-yes-brightgreen.svg?color=orange) 
@@ -31,19 +31,19 @@ smf.new_topic(1, "subject", "This is the message to post!")
 ```
 
 ## Project, code and downloads: 
-https://github.com/bithon/python-simplemachinesforum
+https://github.com/oliver-zehentleitner/python-simplemachinesforum
 
 ## Wiki
-https://github.com/bithon/python-simplemachinesforum/wiki
+https://github.com/oliver-zehentleitner/python-simplemachinesforum/wiki
 
 ## How to report bugs or suggest improvements?
 Please open a new issue:
-https://github.com/bithon/python-simplemachinesforum/issues
+https://github.com/oliver-zehentleitner/python-simplemachinesforum/issues
 
-If you report a bug, try first the latest release via [download](https://github.com/bithon/python-simplemachinesforum/releases) 
+If you report a bug, try first the latest release via [download](https://github.com/oliver-zehentleitner/python-simplemachinesforum/releases) 
 or with `pip install simplemachinesforum --upgrade`. If the issue still exists, provide the error trace, OS 
 and python version and explain how to reproduce the error. A demo script is appreciated.
 
 ## Contributing
 `python-simplemachinesforum` is an open source project which welcomes contributions which can be anything from simple 
-documentation fixes to new features. To contribute, fork the project on [GitHub](https://github.com/bithon/python-simplemachinesforum) and send a pull request.
+documentation fixes to new features. To contribute, fork the project on [GitHub](https://github.com/oliver-zehentleitner/python-simplemachinesforum) and send a pull request.

@@ -4,9 +4,10 @@
 # File: simplemachinesforum.py
 #
 # Part of ‘python-simplemachinesforum’
-# Project website: https://github.com/bithon/python-simplemachinesforum
+# Project website: https://github.com/oliver-zehentleitner/python-simplemachinesforum
 #
 # Author: Oliver Zehentleitner
+#         https://about.me/oliver-zehentleitner
 #
 # Copyright (c) 2019, Oliver Zehentleitner
 # All rights reserved.
@@ -34,6 +35,9 @@ import requests
 
 
 class SimpleMachinesForum(object):
+    """
+    Python API to SimpleMachinesForum
+    """
     def __init__(self, smf_url, smf_user, smf_pass):
         self.smf_url = smf_url
         self.smf_user = smf_user
@@ -62,6 +66,27 @@ class SimpleMachinesForum(object):
         print("Login Response: %s" % response)
 
     def new_topic(self, board, subject, msg, icon="xx", notify=0, lock=0, sticky=0):
+        """
+        Create a new topic on a remote simple machines forum over the network, all it needs is a
+        valid user account to login.
+
+        :param board: The board ID (e.g. '1')
+        :type board: int
+        :param subject: The subject of the new topic.
+        :type subject: str
+        :param msg: The body text of the new topic.
+        :type msg: str
+        :param icon: The topic icon, choose: xx = Standard, thumbup = Thumb Up, thumbdown = Thumb Down, exclamation =
+        Exclamation point, question = Question mark, lamp = Lamp, smiley = Smiley, angry = Angry, cheesy = Cheesy,
+        wink = Wink, grin = Grin, sad = Sad
+        :type icon: str
+        :param notify: Set notifications (0 = no, 1 = yes)
+        :type notify: int
+        :param lock: Lock the new topic (0 = no, 1 = yes)
+        :type lock: int
+        :param sticky: Set sticky (0 = no, 1 = yes)
+        :type sticky: int
+        """
         # start a new topic
         post_url1 = "index.php?action=post;board=" + str(board)
         post_url2 = "index.php?action=post2;start=0;board=" + str(board) + ".0"

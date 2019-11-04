@@ -4,9 +4,10 @@
 # File: pypi_upload_wheel.sh
 #
 # Part of ‘python-simplemachinesforum’
-# Project website: https://github.com/bithon/python-simplemachinesforum
+# Project website: https://github.com/oliver-zehentleitner/python-simplemachinesforum
 #
 # Author: Oliver Zehentleitner
+#         https://about.me/oliver-zehentleitner
 #
 # Copyright (c) 2019, Oliver Zehentleitner
 # All rights reserved.
