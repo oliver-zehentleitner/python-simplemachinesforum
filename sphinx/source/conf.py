@@ -54,7 +54,7 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 html_theme = 'python_docs_theme_technopathy'
-html_context = {'github_repo_url': 'https://github.com/oliver-zehentleitner/python-simplemachinesfourm', 'github_repo_name': project}
+html_context = {'github_repo_url': 'https://github.com/oliver-zehentleitner/python-simplemachinesforum', 'github_repo_name': project}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
