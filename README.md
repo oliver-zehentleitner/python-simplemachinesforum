@@ -18,7 +18,7 @@ A forum is for humans, please use this piece of software only in combination wit
 ## Installation
 `pip install simplemachinesforum`
 
-https://pypi.org/project/simplemachinesforum/
+[https://pypi.org/project/simplemachinesforum/](https://pypi.org/project/simplemachinesforum/)
 ## How to create a new topic?
 ```
 from simplemachinesforum.simplemachinesforum import SimpleMachinesForum
@@ -30,15 +30,18 @@ smf = SimpleMachinesForum(smf_url, smf_user, smf_pass)
 smf.new_topic(1, "subject", "This is the message to post!")
 ```
 
+## Documentation
+[https://oliver-zehentleitner.github.io/python-simplemachinesforum/](https://oliver-zehentleitner.github.io/python-simplemachinesforum/)
+
 ## Project, code and downloads: 
-https://github.com/oliver-zehentleitner/python-simplemachinesforum
+[https://github.com/oliver-zehentleitner/python-simplemachinesforum](https://github.com/oliver-zehentleitner/python-simplemachinesforum)
 
 ## Wiki
-https://github.com/oliver-zehentleitner/python-simplemachinesforum/wiki
+[https://github.com/oliver-zehentleitner/python-simplemachinesforum/wiki](https://github.com/oliver-zehentleitner/python-simplemachinesforum/wiki)
 
 ## How to report bugs or suggest improvements?
 Please open a new issue:
-https://github.com/oliver-zehentleitner/python-simplemachinesforum/issues
+[https://github.com/oliver-zehentleitner/python-simplemachinesforum/issues](https://github.com/oliver-zehentleitner/python-simplemachinesforum/issues)
 
 If you report a bug, try first the latest release via [download](https://github.com/oliver-zehentleitner/python-simplemachinesforum/releases) 
 or with `pip install simplemachinesforum --upgrade`. If the issue still exists, provide the error trace, OS 
