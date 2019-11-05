@@ -38,6 +38,13 @@ class SimpleMachinesForum(object):
     """
     Python API to SimpleMachinesForum
 
+    :param smf_url: URL to the board
+    :type smf_url: str
+    :param smf_user: Username for the login
+    :type smf_user: str
+    :param smf_pass: Password for the login
+    :type smf_pass: str
+
     """
     def __init__(self, smf_url, smf_user, smf_pass):
         self.smf_url = smf_url
@@ -87,6 +94,8 @@ class SimpleMachinesForum(object):
         :type lock: int
         :param sticky: Set sticky (0 = no, 1 = yes)
         :type sticky: int
+        :return: True or False
+        :rtype: bool
 
         """
 
@@ -117,7 +126,10 @@ class SimpleMachinesForum(object):
                            str(self.smf_random_input): str(self.smf_session_id),
                            'seqnum': str(seqnum)}
                 response = requests.post(self.smf_url + post_url2, data=payload, cookies=session.cookies)
-                print("Response: %s" % response)
+                if response:
+                    return True
+                else:
+                    return False
             except KeyError:
-                pass
+                return False
 

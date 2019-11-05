@@ -67,6 +67,15 @@
 <em class="property">class </em><code class="sig-prename descclassname">simplemachinesforum.simplemachinesforum.</code><code class="sig-name descname">SimpleMachinesForum</code><span class="sig-paren">(</span><em class="sig-param">smf_url</em>, <em class="sig-param">smf_user</em>, <em class="sig-param">smf_pass</em><span class="sig-paren">)</span><a class="headerlink" href="#simplemachinesforum.simplemachinesforum.SimpleMachinesForum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Python API to SimpleMachinesForum</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>smf_url</strong> (<em>str</em>) – URL to the board</p></li>
+<li><p><strong>smf_user</strong> (<em>str</em>) – Username for the login</p></li>
+<li><p><strong>smf_pass</strong> (<em>str</em>) – Password for the login</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="simplemachinesforum.simplemachinesforum.SimpleMachinesForum.new_topic">
 <code class="sig-name descname">new_topic</code><span class="sig-paren">(</span><em class="sig-param">board</em>, <em class="sig-param">subject</em>, <em class="sig-param">msg</em>, <em class="sig-param">icon='xx'</em>, <em class="sig-param">notify=0</em>, <em class="sig-param">lock=0</em>, <em class="sig-param">sticky=0</em><span class="sig-paren">)</span><a class="headerlink" href="#simplemachinesforum.simplemachinesforum.SimpleMachinesForum.new_topic" title="Permalink to this definition">¶</a></dt>
@@ -85,6 +94,12 @@ wink = Wink, grin = Grin, sad = Sad</p></li>
 <li><p><strong>lock</strong> (<em>int</em>) – Lock the new topic (0 = no, 1 = yes)</p></li>
 <li><p><strong>sticky</strong> (<em>int</em>) – Set sticky (0 = no, 1 = yes)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True or False</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
