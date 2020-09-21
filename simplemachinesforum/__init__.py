@@ -1,0 +1,1 @@
+from simplemachinesforum.simplemachinesforum import SimpleMachinesForum
