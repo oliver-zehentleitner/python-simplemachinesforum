@@ -32,6 +32,7 @@
 # IN THE SOFTWARE.
 
 import requests
+import re
 
 
 class SimpleMachinesForum(object):
@@ -156,3 +157,38 @@ class SimpleMachinesForum(object):
                     return False
             except KeyError:
                 return False
+
+    def get_topic_id(self, board, subject):
+        """
+        Given a subject name and board, return the topic id for the matching topic.
+
+        :param board: The board ID (e.g. '1')
+        :type board: int
+        :param subject: The subject of the existing topic.
+        :type subject: str
+        :return: the topic's id, or None on error
+        :rtype: int
+
+        """
+
+        get_url = "index.php?board=" + str(board) + ".0"
+        # the content of the href is ignored here because of inconsistant url behaviour between forums
+        topic_pattern = "<span id=\"msg_([0-9]+)\"><a href.*>"+subject+"</a></span>"
+
+        # a login is necessary for reading in case the board is in maintenance mode
+        with requests.session() as session:
+            self._login(session)
+            try:
+                response = requests.get(self.smf_url + get_url, cookies=session.cookies)
+                if not response:
+                    return None
+                # do some basic regex parsing so we don't have to bring in an entire new library
+                result = re.findall(topic_pattern, str(response.content))
+                if result and len(result)>0:
+                    return int(result[0])
+                else:
+                    return None
+            except KeyError:
+                return None
+            except ValueError:
+                return None
