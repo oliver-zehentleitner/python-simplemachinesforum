@@ -133,3 +133,26 @@ class SimpleMachinesForum(object):
             except KeyError:
                 return False
 
+    def toggle_sticky(self, topic):
+        """
+        Given a topic ID, toggle the topic's stickiness.
+
+        :param topic: The topic ID (e.g. '1')
+        :type topic: int
+        :return: True or False
+        :rtype: bool
+
+        """
+
+        post_url = "index.php?action=sticky;topic=" + str(topic) + ".0"
+        with requests.session() as session:
+            self._login(session)
+            try:
+                post_url += ";"+str(self.smf_random_input)+"="+str(self.smf_session_id)
+                response = requests.get(self.smf_url + post_url, cookies=session.cookies)
+                if response:
+                    return True
+                else:
+                    return False
+            except KeyError:
+                return False
