@@ -305,3 +305,42 @@ class SimpleMachinesForum(object):
                 return None
 
             return results
+
+    def get_stickied_posts(self, board):
+        """
+        Given a board, return the topic id for all currently stickied topics
+        :param board: The board ID (e.g. '1')
+        :type board: int
+        :return: the topic ids, or None on error
+        :rtype: array of ints/None
+        """
+
+        results = []
+        
+        # a login is necessary for reading in case the board is in maintenance mode
+        with requests.session() as session:
+            self._login(session)
+            #only need to check the first page
+            try:
+                #grab the page
+                get_url = "index.php?board=" + str(board) + ".0"
+                response = requests.get(self.smf_url + get_url, cookies=session.cookies)
+                if not response:
+                    return None
+
+                #parse the page
+                soup = BeautifulSoup(str(response.content), 'lxml')
+                
+                #look for any topics marked as sticky
+                topics = soup.find("table", class_="table_grid").find("tbody").find_all("tr")
+                for topic in topics:
+                    topic_idspan = topic.find("span", id=re.compile("msg_[0-9]+"))["id"]
+                    topic_id = int(topic_idspan.replace("msg_", ""))
+                    
+                    if topic.find("td", class_="icon1 stickybg") is not None or topic.find("td", class_="subject stickybg2") is not None:
+                        results.append(topic_id)
+
+                return results
+
+            except Exception:
+                return None
