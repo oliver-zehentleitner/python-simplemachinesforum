@@ -232,7 +232,7 @@ class SimpleMachinesForum(object):
             
         return results
 
-    def advanced_search(self, boards, search_term, users, min_age, max_age):
+    def advanced_search(self, boards, search_term, users, min_age, max_age, subject_only):
         """
         Use the advanced search feature, and return the list of matches
 
@@ -246,6 +246,8 @@ class SimpleMachinesForum(object):
         :type min_age: int
         :param max_age: Oldest posts in days to search for.
         :type max_age: int
+        :param subject_only: If to only search by subject. 0 for no, 1 for yes.
+        :type subject_only: int
         :return: List of topic ids that match the search
         :rtype: array of ints, or None on error
         """
@@ -267,6 +269,7 @@ class SimpleMachinesForum(object):
                            'minage': min_age,
                            'maxage': max_age,
                            'all': '',
+                           'subject_only': subject_only,
                            'submit': 'Search'}
                 #add all the board id's to the payload
                 for board in boards:
