@@ -200,8 +200,8 @@ class SimpleMachinesForum(object):
                     topics = soup.find_all("span", id=re.compile("msg_[0-9]+"))
                     for topic in topics:
                         if subject == topic.find("a").text:
-                            topicid = topic["id"]
-                            topicid = topicid.replace("msg_", "")
+                            topicid = topic.find("a")["href"]
+                            topicid = re.search("topic.([0-9]+)", topicid).group(1)
                             return int(topicid)
                         
                     #exit the loop if we've hit the last page
@@ -227,7 +227,7 @@ class SimpleMachinesForum(object):
                 if "class" not in topic.attrs:
                     topic_urls_filtered.append(topic)
             topic_url = topic_urls_filtered[-1]["href"]
-            topic_num = topic_url[topic_url.rindex("msg")+3:]
+            topic_num = re.search("topic.([0-9]+)", topic_url).group(1)
             results.append(int(topic_num))
             
         return results
@@ -334,10 +334,15 @@ class SimpleMachinesForum(object):
                 #look for any topics marked as sticky
                 topics = soup.find("table", class_="table_grid").find("tbody").find_all("tr")
                 for topic in topics:
-                    topic_idspan = topic.find("span", id=re.compile("msg_[0-9]+"))["id"]
-                    topic_id = int(topic_idspan.replace("msg_", ""))
+                    #ignore the background tr element
+                    if "class" in topic.attrs:
+                        continue
+
+                    topic_idspan = topic.find("span", id=re.compile("msg_[0-9]+")).find("a")["href"]
+                    topic_id = int(re.search("topic.([0-9]+)", topic_idspan).group(1))
                     
-                    if topic.find("td", class_="icon1 stickybg") is not None or topic.find("td", class_="subject stickybg2") is not None:
+                    if topic.find("td", class_="icon1 stickybg") is not None or topic.find("td", class_="subject stickybg2") is not None or\
+                    topic.find("td", class_="icon1 stickybg locked_sticky") is not None or topic.find("td", class_="subject stickybg locked_sticky2") is not None:
                         results.append(topic_id)
 
                 return results
