@@ -212,3 +212,57 @@ class SimpleMachinesForum(object):
                     return None
                 except ValueError:
                     return None
+
+    def advanced_search(self, boards, search_term, users, min_age, max_age):
+        """
+        Use the advanced search feature, and return the list of matches
+
+        :param boards: The boards to search IDs
+        :type boards: array of ints
+        :param search_term: The search term to use.
+        :type search_term: str
+        :param users: The usernames to search for. * is all users
+        :type users: array of strings
+        :param min_age: Youngest posts in days to search for.
+        :type min_age: int
+        :param max_age: Oldest posts in days to search for.
+        :type max_age: int
+        :return: List of topic ids that match the search
+        :rtype: array of ints
+        """
+        
+        post_url = "index.php?action=search2"
+        
+        with requests.session() as session:
+            self._login(session)
+            try:
+                payload = {'advanced': 1,
+                           'search': search_term,
+                           'searchtype': 1,
+                           'userspec': ','.join(users),
+                           'sort': 'relevance|desc',
+                           'minage': min_age,
+                           'maxage': max_age,
+                           'submit': 'Search'}
+                #add all the board id's to the payload
+                for board in boards:
+                    payload["brd["+str(board)+"]"] = board
+
+                response = requests.post(self.smf_url + post_url, data=payload, cookies=session.cookies)
+                if response:
+                    #parse the page
+                    soup = BeautifulSoup(str(response.content), 'lxml')
+                    topics = soup.find_all("div", class_="search_results_posts")
+                    
+                    #return the list of topic ids
+                    results = []
+                    for topic in topics:
+                        topic_sub = topic.find("div", class_="topic_details floatleft").find("h5")
+                        topic_url = topic_sub.find_all("a")[-1]["href"]
+                        topic_num = topic_url[topic_url.rindex("msg")+3:]
+                        results.append(int(topic_num))
+                    return results
+                else:
+                    return False
+            except KeyError:
+                return False
