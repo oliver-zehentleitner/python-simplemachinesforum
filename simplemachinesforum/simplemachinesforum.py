@@ -213,6 +213,25 @@ class SimpleMachinesForum(object):
                 except ValueError:
                     return None
 
+    def advanced_search_singlepage(self, soup):
+        topics = soup.find_all("div", class_="search_results_posts")
+        results = []
+        
+        #return the list of topic ids
+        for topic in topics:
+            topic_sub = topic.find("div", class_="topic_details floatleft").find("h5")
+            topic_urls = topic_sub.find_all("a")
+            topic_urls_filtered = []
+            for topic in topic_urls:
+                #exclude the threadTag url
+                if "class" not in topic.attrs:
+                    topic_urls_filtered.append(topic)
+            topic_url = topic_urls_filtered[-1]["href"]
+            topic_num = topic_url[topic_url.rindex("msg")+3:]
+            results.append(int(topic_num))
+            
+        return results
+
     def advanced_search(self, boards, search_term, users, min_age, max_age):
         """
         Use the advanced search feature, and return the list of matches
@@ -228,11 +247,15 @@ class SimpleMachinesForum(object):
         :param max_age: Oldest posts in days to search for.
         :type max_age: int
         :return: List of topic ids that match the search
-        :rtype: array of ints
+        :rtype: array of ints, or None on error
         """
         
-        post_url = "index.php?action=search2"
-        
+        post_url1 = "index.php?action=search2"
+        results = []
+        offset = 30 #pages are 30 results at a time
+        max_offset = 30
+        params = ""
+
         with requests.session() as session:
             self._login(session)
             try:
@@ -243,26 +266,39 @@ class SimpleMachinesForum(object):
                            'sort': 'relevance|desc',
                            'minage': min_age,
                            'maxage': max_age,
+                           'all': '',
                            'submit': 'Search'}
                 #add all the board id's to the payload
                 for board in boards:
                     payload["brd["+str(board)+"]"] = board
 
-                response = requests.post(self.smf_url + post_url, data=payload, cookies=session.cookies)
-                if response:
-                    #parse the page
-                    soup = BeautifulSoup(str(response.content), 'lxml')
-                    topics = soup.find_all("div", class_="search_results_posts")
+                #parse the first page
+                response = requests.post(self.smf_url + post_url1, data=payload, cookies=session.cookies)
+                if not response:
+                    return None
+                soup = BeautifulSoup(str(response.content), 'lxml')
+                results += self.advanced_search_singlepage(soup)
+
+                #get the max offset page and the params
+                pages = soup.find("div", class_="pagesection")
+                navpages = pages.find_all("a", class_="navPages")
+                if len(navpages) > 0:
+                    navpage_url = navpages[-1]["href"]
+                    max_offset = int(navpage_url[navpage_url.rindex("start=")+6:])
+                    params = navpage_url[navpage_url.rindex("params=")+7:navpage_url.rindex(";start=")]
+
+                #parse the next number of pages
+                while offset < max_offset:
+                    get_url1 = post_url1 + ";params=" + params + ";start=" + str(offset)
+                    response = requests.get(self.smf_url + get_url1, cookies=session.cookies)
                     
-                    #return the list of topic ids
-                    results = []
-                    for topic in topics:
-                        topic_sub = topic.find("div", class_="topic_details floatleft").find("h5")
-                        topic_url = topic_sub.find_all("a")[-1]["href"]
-                        topic_num = topic_url[topic_url.rindex("msg")+3:]
-                        results.append(int(topic_num))
-                    return results
-                else:
-                    return False
-            except KeyError:
-                return False
+                    #parse this page
+                    soup = BeautifulSoup(str(response.content), 'lxml')
+                    results += self.advanced_search_singlepage(soup)
+                    
+                    offset += 30
+                    
+            except Exception as e:
+                return None
+
+            return results
