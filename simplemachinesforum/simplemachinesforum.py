@@ -33,6 +33,7 @@
 
 import requests
 import re
+from bs4 import BeautifulSoup
 
 
 class SimpleMachinesForum(object):
@@ -171,24 +172,43 @@ class SimpleMachinesForum(object):
 
         """
 
-        get_url = "index.php?board=" + str(board) + ".0"
-        # the content of the href is ignored here because of inconsistant url behaviour between forums
-        topic_pattern = "<span id=\"msg_([0-9]+)\"><a href.*>"+subject+"</a></span>"
+        cur_page = 0
+        max_page = 0
 
         # a login is necessary for reading in case the board is in maintenance mode
         with requests.session() as session:
             self._login(session)
-            try:
-                response = requests.get(self.smf_url + get_url, cookies=session.cookies)
-                if not response:
+            #always check the first page, at minimum
+            while True:
+                try:
+                    #grab the page
+                    get_url = "index.php?board=" + str(board) + "." + str(cur_page) + "00"
+                    response = requests.get(self.smf_url + get_url, cookies=session.cookies)
+                    if not response:
+                        return None
+
+                    #parse the page
+                    soup = BeautifulSoup(str(response.content), 'lxml')
+                    
+                    #grab the max page number
+                    pages = soup.find("div", class_="pagelinks floatleft")
+                    navpages = pages.find_all("a", class_="navPages")
+                    if len(navpages) > 0:
+                        max_page = int(navpages[-1].text) - 1 #subrtact 1 since the url is 0 indexed
+
+                    #look for any topics with matching subject
+                    topics = soup.find_all("span", id=re.compile("msg_[0-9]+"))
+                    for topic in topics:
+                        if subject == topic.find("a").text:
+                            topicid = topic["id"]
+                            topicid = topicid.replace("msg_", "")
+                            return int(topicid)
+                        
+                    #exit the loop if we've hit the last page
+                    cur_page += 1
+                    if cur_page > max_page:
+                        return None
+                except KeyError:
                     return None
-                # do some basic regex parsing so we don't have to bring in an entire new library
-                result = re.findall(topic_pattern, str(response.content))
-                if result and len(result)>0:
-                    return int(result[0])
-                else:
+                except ValueError:
                     return None
-            except KeyError:
-                return None
-            except ValueError:
-                return None
