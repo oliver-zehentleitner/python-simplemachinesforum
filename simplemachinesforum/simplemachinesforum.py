@@ -55,8 +55,12 @@ class SimpleMachinesForum(object):
         self.smf_cookie = False
         self.smf_session_id = False
         self.smf_random_input = False
+        self.headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0 Waterfox/56.4' }
 
     def _login(self, session):
+        #set sessions headers
+        session.headers.update(self.headers)
+
         # login method
         login_url1 = "index.php?action=login"
         login_url2 = "index.php?action=login2"
@@ -107,7 +111,7 @@ class SimpleMachinesForum(object):
         with requests.session() as session:
             self._login(session)
             # get seqnum
-            post_page = session.get(self.smf_url + post_url1, cookies=session.cookies)
+            post_page = session.get(self.smf_url + post_url1)
             try:
                 seqnum = post_page.text.split("<input type=\"hidden\" name=\"seqnum\" value=\"")[1].split("\"")[0]
                 # post the post :)
@@ -127,7 +131,7 @@ class SimpleMachinesForum(object):
                            'additional_options': 0,
                            str(self.smf_random_input): str(self.smf_session_id),
                            'seqnum': str(seqnum)}
-                response = requests.post(self.smf_url + post_url2, data=payload, cookies=session.cookies)
+                response = session.post(self.smf_url + post_url2, data=payload)
                 if response:
                     return True
                 else:
@@ -151,7 +155,7 @@ class SimpleMachinesForum(object):
             self._login(session)
             try:
                 post_url += ";"+str(self.smf_random_input)+"="+str(self.smf_session_id)
-                response = requests.get(self.smf_url + post_url, cookies=session.cookies)
+                response = session.get(self.smf_url + post_url)
                 if response:
                     return True
                 else:
@@ -183,7 +187,7 @@ class SimpleMachinesForum(object):
                 try:
                     #grab the page
                     get_url = "index.php?board=" + str(board) + "." + str(cur_page) + "00"
-                    response = requests.get(self.smf_url + get_url, cookies=session.cookies)
+                    response = session.get(self.smf_url + get_url)
                     if not response:
                         return None
 
@@ -276,7 +280,7 @@ class SimpleMachinesForum(object):
                     payload["brd["+str(board)+"]"] = board
 
                 #parse the first page
-                response = requests.post(self.smf_url + post_url1, data=payload, cookies=session.cookies)
+                response = session.post(self.smf_url + post_url1, data=payload)
                 if not response:
                     return None
                 soup = BeautifulSoup(str(response.content), 'lxml')
@@ -293,7 +297,7 @@ class SimpleMachinesForum(object):
                 #parse the next number of pages
                 while offset < max_offset:
                     get_url1 = post_url1 + ";params=" + params + ";start=" + str(offset)
-                    response = requests.get(self.smf_url + get_url1, cookies=session.cookies)
+                    response = session.get(self.smf_url + get_url1)
                     
                     #parse this page
                     soup = BeautifulSoup(str(response.content), 'lxml')
@@ -324,7 +328,7 @@ class SimpleMachinesForum(object):
             try:
                 #grab the page
                 get_url = "index.php?board=" + str(board) + ".0"
-                response = requests.get(self.smf_url + get_url, cookies=session.cookies)
+                response = session.get(self.smf_url + get_url)
                 if not response:
                     return None
 
