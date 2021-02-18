@@ -155,9 +155,10 @@ class SimpleMachinesForum(object):
             self._login(session)
             try:
                 post_url += ";"+str(self.smf_random_input)+"="+str(self.smf_session_id)
-                response = session.get(self.smf_url + post_url)
+                #prevent redirects since a correct response will have one, an incorrect response will just return 200
+                response = session.get(self.smf_url + post_url, allow_redirects=False)
                 if response:
-                    return True
+                    return response.status_code==301
                 else:
                     return False
             except KeyError:
