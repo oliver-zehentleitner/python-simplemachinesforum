@@ -34,6 +34,66 @@
 import requests
 import re
 from bs4 import BeautifulSoup
+import time
+
+class SimpleMachinesForumAuth(object):
+    """
+    Helper class for the SimpleMachienForum class, which handles all authentication (login/logout)
+    This must be called upon the completion of every session/operation, since otherwise re-logging in will set a new, but invalid, PHPSESSID cookie
+    Logging in and logging out every operation makes them idempotent, which costs more bandwidth/time but is easier then tracking login status/timeouts
+    By implementing this class to support 'with', it can just be wrapped around each call to handle all authentication automatically
+    """
+
+    def __init__(self, smf, session):
+        self.smf_info = smf
+        self.session = session
+        self.smf_session_id = None
+        self.smf_random_input = None
+        self.headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0 Waterfox/56.4' }
+
+    def __enter__(self):
+        """
+        Login to the account
+        """
+        #set sessions headers
+        self.session.headers.update(self.headers)
+
+        # login method
+        login_url1 = "index.php?action=login"
+        login_url2 = "index.php?action=login2"
+
+        # get auth_key and random input name
+        login_page = self.session.get(self.smf_info.smf_url + login_url1)
+        self.smf_session_id = login_page.text.split("hashLoginPassword(this, '")[1].split("'")[0]
+        self.smf_random_input = login_page.text.split("<input type=\"hidden\" name=\"hash_passwrd\" value=\"\" />"
+                                                      "<input type=\"hidden\" name=\"")[1].split("\"")[0]
+        # login
+        payload = {
+            'user': self.smf_info.smf_user,
+            'passwrd': self.smf_info.smf_pass,
+            'cookielength': -1,
+            self.smf_random_input: self.smf_session_id,
+        }
+        #prevent redirects since a correct response will have one, an incorrect response will just return 200
+        response = self.session.post(self.smf_info.smf_url + login_url2, data=payload, allow_redirects=False)
+
+        if response.status_code != 302:
+            raise Exception("Unable to login to account")
+
+        return self
+
+    def __exit__(self, type, value, traceback):
+        """
+        Logout from the account
+        """
+        get_url = "index.php?action=logout;"+str(self.smf_random_input)+"="+str(self.smf_session_id)
+        #prevent redirects since a correct response will have one, an incorrect response will just return 200
+        response = self.session.get(self.smf_info.smf_url + get_url, allow_redirects=False)
+
+        #you have to wait 2 seconds between login attempts
+        time.sleep(3)
+        if response is None or response.status_code!=302:
+            raise Exception("Unable to logout of account")
 
 
 class SimpleMachinesForum(object):
@@ -52,32 +112,6 @@ class SimpleMachinesForum(object):
         self.smf_url = smf_url
         self.smf_user = smf_user
         self.smf_pass = smf_pass
-        self.smf_cookie = False
-        self.smf_session_id = False
-        self.smf_random_input = False
-        self.headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0 Waterfox/56.4' }
-
-    def _login(self, session):
-        #set sessions headers
-        session.headers.update(self.headers)
-
-        # login method
-        login_url1 = "index.php?action=login"
-        login_url2 = "index.php?action=login2"
-        # get auth_key and random input name
-        login_page = session.get(self.smf_url + login_url1)
-        self.smf_session_id = login_page.text.split("hashLoginPassword(this, '")[1].split("'")[0]
-        self.smf_random_input = login_page.text.split("<input type=\"hidden\" name=\"hash_passwrd\" value=\"\" />"
-                                                      "<input type=\"hidden\" name=\"")[1].split("\"")[0]
-        # login
-        payload = {
-            'user': self.smf_user,
-            'passwrd': self.smf_pass,
-            'cookielength': -1,
-            self.smf_random_input: self.smf_session_id,
-        }
-        response = session.post(self.smf_url + login_url2, data=payload)
-        print("Login Response: %s" % response)
 
     def new_topic(self, board, subject, msg, icon="xx", notify=0, lock=0, sticky=0):
         """
@@ -108,36 +142,37 @@ class SimpleMachinesForum(object):
         # start a new topic
         post_url1 = "index.php?action=post;board=" + str(board)
         post_url2 = "index.php?action=post2;start=0;board=" + str(board) + ".0"
+        
         with requests.session() as session:
-            self._login(session)
-            # get seqnum
-            post_page = session.get(self.smf_url + post_url1)
-            try:
-                seqnum = post_page.text.split("<input type=\"hidden\" name=\"seqnum\" value=\"")[1].split("\"")[0]
-                # post the post :)
-                payload = {'topic': 0,
-                           'subject': str(subject),
-                           'icon': str(icon),
-                           'sel_face': '',
-                           'sel_size': '',
-                           'sel_color': '',
-                           'message': str(msg),
-                           'message_mode': 0,
-                           'notify': notify,
-                           'lock': lock,
-                           'sticky': sticky,
-                           'move': 0,
-                           'attachment[]': "",
-                           'additional_options': 0,
-                           str(self.smf_random_input): str(self.smf_session_id),
-                           'seqnum': str(seqnum)}
-                response = session.post(self.smf_url + post_url2, data=payload)
-                if response:
-                    return True
-                else:
+            with SimpleMachinesForumAuth(self, session) as auth:
+                try:
+                    # get seqnum
+                    post_page = session.get(self.smf_url + post_url1)
+                    seqnum = post_page.text.split("<input type=\"hidden\" name=\"seqnum\" value=\"")[1].split("\"")[0]
+                    # post the post :)
+                    payload = {'topic': 0,
+                               'subject': str(subject),
+                               'icon': str(icon),
+                               'sel_face': '',
+                               'sel_size': '',
+                               'sel_color': '',
+                               'message': str(msg),
+                               'message_mode': 0,
+                               'notify': notify,
+                               'lock': lock,
+                               'sticky': sticky,
+                               'move': 0,
+                               'attachment[]': "",
+                               'additional_options': 0,
+                               str(auth.smf_random_input): str(auth.smf_session_id),
+                               'seqnum': str(seqnum)}
+                    response = session.post(self.smf_url + post_url2, data=payload)
+                    if response:
+                        return True
+                    else:
+                        return False
+                except KeyError:
                     return False
-            except KeyError:
-                return False
 
     def toggle_sticky(self, topic):
         """
@@ -152,17 +187,17 @@ class SimpleMachinesForum(object):
 
         post_url = "index.php?action=sticky;topic=" + str(topic) + ".0"
         with requests.session() as session:
-            self._login(session)
-            try:
-                post_url += ";"+str(self.smf_random_input)+"="+str(self.smf_session_id)
-                #prevent redirects since a correct response will have one, an incorrect response will just return 200
-                response = session.get(self.smf_url + post_url, allow_redirects=False)
-                if response:
-                    return response.status_code==301
-                else:
+            with SimpleMachinesForumAuth(self, session) as auth:
+                try:
+                    post_url += ";"+str(auth.smf_random_input)+"="+str(auth.smf_session_id)
+                    #prevent redirects since a correct response will have one, an incorrect response will just return 200
+                    response = session.get(self.smf_url + post_url, allow_redirects=False)
+                    if response:
+                        return response.status_code==302
+                    else:
+                        return False
+                except KeyError:
                     return False
-            except KeyError:
-                return False
 
     def get_topic_id(self, board, subject):
         """
@@ -182,41 +217,41 @@ class SimpleMachinesForum(object):
 
         # a login is necessary for reading in case the board is in maintenance mode
         with requests.session() as session:
-            self._login(session)
-            #always check the first page, at minimum
-            while True:
-                try:
-                    #grab the page
-                    get_url = "index.php?board=" + str(board) + "." + str(cur_page) + "00"
-                    response = session.get(self.smf_url + get_url)
-                    if not response:
-                        return None
+            with SimpleMachinesForumAuth(self, session) as auth:
+                #always check the first page, at minimum
+                while True:
+                    try:
+                        #grab the page
+                        get_url = "index.php?board=" + str(board) + "." + str(cur_page) + "00"
+                        response = session.get(self.smf_url + get_url)
+                        if not response:
+                            return None
 
-                    #parse the page
-                    soup = BeautifulSoup(str(response.content), 'lxml')
-                    
-                    #grab the max page number
-                    pages = soup.find("div", class_="pagelinks floatleft")
-                    navpages = pages.find_all("a", class_="navPages")
-                    if len(navpages) > 0:
-                        max_page = int(navpages[-1].text) - 1 #subrtact 1 since the url is 0 indexed
-
-                    #look for any topics with matching subject
-                    topics = soup.find_all("span", id=re.compile("msg_[0-9]+"))
-                    for topic in topics:
-                        if subject == topic.find("a").text:
-                            topicid = topic.find("a")["href"]
-                            topicid = re.search("topic.([0-9]+)", topicid).group(1)
-                            return int(topicid)
+                        #parse the page
+                        soup = BeautifulSoup(str(response.content), 'lxml')
                         
-                    #exit the loop if we've hit the last page
-                    cur_page += 1
-                    if cur_page > max_page:
+                        #grab the max page number
+                        pages = soup.find("div", class_="pagelinks floatleft")
+                        navpages = pages.find_all("a", class_="navPages")
+                        if len(navpages) > 0:
+                            max_page = int(navpages[-1].text) - 1 #subrtact 1 since the url is 0 indexed
+
+                        #look for any topics with matching subject
+                        topics = soup.find_all("span", id=re.compile("msg_[0-9]+"))
+                        for topic in topics:
+                            if subject == topic.find("a").text:
+                                topicid = topic.find("a")["href"]
+                                topicid = re.search("topic.([0-9]+)", topicid).group(1)
+                                return int(topicid)
+                            
+                        #exit the loop if we've hit the last page
+                        cur_page += 1
+                        if cur_page > max_page:
+                            return None
+                    except KeyError:
                         return None
-                except KeyError:
-                    return None
-                except ValueError:
-                    return None
+                    except ValueError:
+                        return None
 
     def advanced_search_singlepage(self, soup):
         topics = soup.find_all("div", class_="search_results_posts")
@@ -264,52 +299,52 @@ class SimpleMachinesForum(object):
         params = ""
 
         with requests.session() as session:
-            self._login(session)
-            try:
-                payload = {'advanced': 1,
-                           'search': search_term,
-                           'searchtype': 1,
-                           'userspec': ','.join(users),
-                           'sort': 'relevance|desc',
-                           'minage': min_age,
-                           'maxage': max_age,
-                           'all': '',
-                           'subject_only': subject_only,
-                           'submit': 'Search'}
-                #add all the board id's to the payload
-                for board in boards:
-                    payload["brd["+str(board)+"]"] = board
+            with SimpleMachinesForumAuth(self, session) as auth:
+                try:
+                    payload = {'advanced': 1,
+                               'search': search_term,
+                               'searchtype': 1,
+                               'userspec': ','.join(users),
+                               'sort': 'relevance|desc',
+                               'minage': min_age,
+                               'maxage': max_age,
+                               'all': '',
+                               'subject_only': subject_only,
+                               'submit': 'Search'}
+                    #add all the board id's to the payload
+                    for board in boards:
+                        payload["brd["+str(board)+"]"] = board
 
-                #parse the first page
-                response = session.post(self.smf_url + post_url1, data=payload)
-                if not response:
-                    return None
-                soup = BeautifulSoup(str(response.content), 'lxml')
-                results += self.advanced_search_singlepage(soup)
-
-                #get the max offset page and the params
-                pages = soup.find("div", class_="pagesection")
-                navpages = pages.find_all("a", class_="navPages")
-                if len(navpages) > 0:
-                    navpage_url = navpages[-1]["href"]
-                    max_offset = int(navpage_url[navpage_url.rindex("start=")+6:])
-                    params = navpage_url[navpage_url.rindex("params=")+7:navpage_url.rindex(";start=")]
-
-                #parse the next number of pages
-                while offset < max_offset:
-                    get_url1 = post_url1 + ";params=" + params + ";start=" + str(offset)
-                    response = session.get(self.smf_url + get_url1)
-                    
-                    #parse this page
+                    #parse the first page
+                    response = session.post(self.smf_url + post_url1, data=payload)
+                    if not response:
+                        return None
                     soup = BeautifulSoup(str(response.content), 'lxml')
                     results += self.advanced_search_singlepage(soup)
-                    
-                    offset += 30
-                    
-            except Exception as e:
-                return None
 
-            return results
+                    #get the max offset page and the params
+                    pages = soup.find("div", class_="pagesection")
+                    navpages = pages.find_all("a", class_="navPages")
+                    if len(navpages) > 0:
+                        navpage_url = navpages[-1]["href"]
+                        max_offset = int(navpage_url[navpage_url.rindex("start=")+6:])
+                        params = navpage_url[navpage_url.rindex("params=")+7:navpage_url.rindex(";start=")]
+
+                    #parse the next number of pages
+                    while offset < max_offset:
+                        get_url1 = post_url1 + ";params=" + params + ";start=" + str(offset)
+                        response = session.get(self.smf_url + get_url1)
+                        
+                        #parse this page
+                        soup = BeautifulSoup(str(response.content), 'lxml')
+                        results += self.advanced_search_singlepage(soup)
+                        
+                        offset += 30
+                        
+                except Exception as e:
+                    return None
+
+                return results
 
     def get_stickied_posts(self, board):
         """
@@ -324,33 +359,33 @@ class SimpleMachinesForum(object):
         
         # a login is necessary for reading in case the board is in maintenance mode
         with requests.session() as session:
-            self._login(session)
-            #only need to check the first page
-            try:
-                #grab the page
-                get_url = "index.php?board=" + str(board) + ".0"
-                response = session.get(self.smf_url + get_url)
-                if not response:
-                    return None
+            with SimpleMachinesForumAuth(self, session) as auth:
+                #only need to check the first page
+                try:
+                    #grab the page
+                    get_url = "index.php?board=" + str(board) + ".0"
+                    response = session.get(self.smf_url + get_url)
+                    if not response:
+                        return None
 
-                #parse the page
-                soup = BeautifulSoup(str(response.content), 'lxml')
-                
-                #look for any topics marked as sticky
-                topics = soup.find("table", class_="table_grid").find("tbody").find_all("tr")
-                for topic in topics:
-                    #ignore the background tr element
-                    if "class" in topic.attrs:
-                        continue
-
-                    topic_idspan = topic.find("span", id=re.compile("msg_[0-9]+")).find("a")["href"]
-                    topic_id = int(re.search("topic.([0-9]+)", topic_idspan).group(1))
+                    #parse the page
+                    soup = BeautifulSoup(str(response.content), 'lxml')
                     
-                    if topic.find("td", class_="icon1 stickybg") is not None or topic.find("td", class_="subject stickybg2") is not None or\
-                    topic.find("td", class_="icon1 stickybg locked_sticky") is not None or topic.find("td", class_="subject stickybg locked_sticky2") is not None:
-                        results.append(topic_id)
+                    #look for any topics marked as sticky
+                    topics = soup.find("table", class_="table_grid").find("tbody").find_all("tr")
+                    for topic in topics:
+                        #ignore the background tr element
+                        if "class" in topic.attrs:
+                            continue
 
-                return results
+                        topic_idspan = topic.find("span", id=re.compile("msg_[0-9]+")).find("a")["href"]
+                        topic_id = int(re.search("topic.([0-9]+)", topic_idspan).group(1))
+                        
+                        if topic.find("td", class_="icon1 stickybg") is not None or topic.find("td", class_="subject stickybg2") is not None or\
+                        topic.find("td", class_="icon1 stickybg locked_sticky") is not None or topic.find("td", class_="subject stickybg locked_sticky2") is not None:
+                            results.append(topic_id)
 
-            except Exception:
-                return None
+                    return results
+
+                except Exception:
+                    return None
