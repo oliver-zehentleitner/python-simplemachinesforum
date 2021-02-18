@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 from simplemachinesforum.simplemachinesforum import SimpleMachinesForum
-from time import sleep
 import random
 
 # config
@@ -15,16 +14,9 @@ smf = SimpleMachinesForum(smf_url, smf_user, smf_pass)
 # post new topic
 subject = "Subject of test topic:"+str(random.randint(0, 9999))
 print("new_topic=" + str(smf.new_topic(1, subject, "This is a test message!")))
-sleep(1)
 topicid = smf.get_topic_id(1, subject)
 print("get_topic_id=" + str(topicid))
-sleep(1)
 stickied = smf.toggle_sticky(topicid)
-while not stickied:
-    print("toggle_sticky=" + str(stickied))
-    stickied = smf.toggle_sticky(topicid)
-    sleep(1)
-sleep(1)
+print("toggle_sticky=" + str(stickied))
 print("get_stickied_posts=" + str(smf.get_stickied_posts(1)))
-sleep(1)
-print("advanced_search=" + str(smf.advanced_search([1], "Subject", ["*"], 0, 9999999, 0)))
+print("advanced_search=" + str(smf.advanced_search([1], subject, ["*"], 0, 9999999, 0)))
