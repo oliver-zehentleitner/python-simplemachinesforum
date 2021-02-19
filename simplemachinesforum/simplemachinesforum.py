@@ -258,8 +258,8 @@ class SimpleMachinesForum(object):
         results = []
         
         #return the list of topic ids
-        for topic in topics:
-            topic_sub = topic.find("div", class_="topic_details floatleft").find("h5")
+        for topic_elems in topics:
+            topic_sub = topic_elems.find("div", class_="topic_details floatleft").find("h5")
             topic_urls = topic_sub.find_all("a")
             topic_urls_filtered = []
             for topic in topic_urls:
