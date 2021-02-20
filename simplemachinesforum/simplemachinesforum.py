@@ -52,6 +52,9 @@ class SimpleMachinesForumAuth(object):
         self.headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0 Waterfox/56.4' }
 
     def __enter__(self):
+        return self.login()
+
+    def login(self):
         """
         Login to the account
         """
@@ -83,6 +86,9 @@ class SimpleMachinesForumAuth(object):
         return self
 
     def __exit__(self, type, value, traceback):
+        self.logout()
+
+    def logout(self):
         """
         Logout from the account
         """
@@ -112,6 +118,17 @@ class SimpleMachinesForum(object):
         self.smf_url = smf_url
         self.smf_user = smf_user
         self.smf_pass = smf_pass
+        #to ensure we don't start the bot in a bad state (already logged in), preemptively try to log out
+        with requests.session() as session:
+            auth = SimpleMachinesForumAuth(self, session)
+            try:
+                auth.login()
+            except Exception:
+                pass
+            try:
+                auth.logout()
+            except Exception:
+                pass
 
     def new_topic(self, board, subject, msg, icon="xx", notify=0, lock=0, sticky=0):
         """
@@ -381,8 +398,8 @@ class SimpleMachinesForum(object):
                         topic_idspan = topic.find("span", id=re.compile("msg_[0-9]+")).find("a")["href"]
                         topic_id = int(re.search("topic.([0-9]+)", topic_idspan).group(1))
                         
-                        if topic.find("td", class_="icon1 stickybg") is not None or topic.find("td", class_="subject stickybg2") is not None or\
-                        topic.find("td", class_="icon1 stickybg locked_sticky") is not None or topic.find("td", class_="subject stickybg locked_sticky2") is not None:
+                        sticky_regx = re.compile('.*stickybg.*')
+                        if topic.find("td", {"class":sticky_regx}) is not None:
                             results.append(topic_id)
 
                     return results
