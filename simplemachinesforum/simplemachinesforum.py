@@ -81,7 +81,7 @@ class SimpleMachinesForumAuth(object):
         response = self.session.post(self.smf_info.smf_url + login_url2, data=payload, allow_redirects=False)
 
         if response.status_code != 302:
-            raise Exception("Unable to login to account")
+            raise Exception("Unable to login to account\n\n=======\n"+str(response.content))
 
         return self
 
@@ -99,7 +99,7 @@ class SimpleMachinesForumAuth(object):
         #you have to wait 2 seconds between login attempts
         time.sleep(3)
         if response is None or response.status_code!=302:
-            raise Exception("Unable to logout of account")
+            raise Exception("Unable to logout of account\n\n=======\n"+str(response.content))
 
 
 class SimpleMachinesForum(object):
