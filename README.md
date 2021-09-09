@@ -62,7 +62,7 @@ documentation fixes to new features. To contribute, fork the project on [GitHub]
 ### Contributors
 [![Contributors](https://contributors-img.web.app/image?repo=oliver-zehentleitner/python-simplemachinesforum)](https://github.com/oliver-zehentleitner/python-simplemachinesforum/graphs/contributors)
 
-We ![love](https://s3.gifyu.com/images/heartae002231c41d8a80.png) open source!
+We ![love](https://raw.githubusercontent.com/oliver-zehentleitner/python-simplemachinesforum/master/images/misc/heart.png) open source!
 
 ## Commercial Support
 Need a Python developer or consulting? 
