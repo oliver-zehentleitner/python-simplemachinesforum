@@ -17,7 +17,11 @@ Python request API to Simple Machines Forum: https://www.simplemachines.org/
 A forum is for humans, please use this piece of software only in combination with YOUR OWN FORUM or by order of the forum owner itself to provide a valuable service. Be aware that bots are not tolerated on most boards and its use will lead to a ban.
 
 ## What does it can?
-- It can create a new topic on a remote simple machines forum over the network, all it needs is a valid user account to login.
+- It can create a new topic with `new_topic()` on a remote simple machines forum over the network, all it needs is a valid user account to login.
+- Given a topic ID, toggle the topic's stickiness with `toggle_sticky()`.
+- Given a subject name and board, return the topic id for the matching topic with `get_topic_id`.
+- Use the advanced search feature, and return the list of matches with `advanced_search()`.
+- Given a board, return the topic id for all currently stickied topics with `get_stickied_posts()`.
 
 ## Installation
 `pip install simplemachinesforum`

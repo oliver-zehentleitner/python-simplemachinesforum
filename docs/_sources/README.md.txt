@@ -2,9 +2,13 @@
 ![GitHub](https://img.shields.io/github/license/oliver-zehentleitner/python-simplemachinesforum.svg?color=blue) 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/simplemachinesforum.svg) 
 ![PyPI - Status](https://img.shields.io/pypi/status/simplemachinesforum.svg) 
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/oliver-zehentleitner/python-simplemachinesforum.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/oliver-zehentleitner/python-simplemachinesforum/context:python)
 ![PyPI - yes](https://img.shields.io/badge/PyPI-yes-brightgreen.svg?color=orange) 
-![PyPI - Wheel](https://img.shields.io/pypi/wheel/unicorn-binance-websocket-api.svg?label=PyPI%20wheel&color=orange) 
-![PyPI - Downloads](https://img.shields.io/pypi/dm/simplemachinesforum.svg?label=PyPI%20downloads&color=orange)
+![PyPI - Wheel](https://img.shields.io/pypi/wheel/simplemachinesforum.svg?label=PyPI%20wheel&color=orange) 
+[![Downloads](https://pepy.tech/badge/simplemachinesforum)](https://pepy.tech/project/simplemachinesforum)
+[![Downloads](https://pepy.tech/badge/simplemachinesforum/month)](https://pepy.tech/project/simplemachinesforum/month)
+[![Donations/week](http://img.shields.io/liberapay/receives/oliver-zehentleitner.svg?logo=liberapay)](https://liberapay.com/oliver-zehentleitner/donate)
+[![Patrons](http://img.shields.io/liberapay/patrons/oliver-zehentleitner.svg?logo=liberapay")](https://liberapay.com/oliver-zehentleitner/donate)
 
 # python-simplemachinesforum
 Python request API to Simple Machines Forum: https://www.simplemachines.org/
@@ -13,7 +17,11 @@ Python request API to Simple Machines Forum: https://www.simplemachines.org/
 A forum is for humans, please use this piece of software only in combination with YOUR OWN FORUM or by order of the forum owner itself to provide a valuable service. Be aware that bots are not tolerated on most boards and its use will lead to a ban.
 
 ## What does it can?
-- It can create a new topic on a remote simple machines forum over the network, all it needs is a valid user account to login.
+- It can create a new topic with `new_topic()` on a remote simple machines forum over the network, all it needs is a valid user account to login.
+- Given a topic ID, toggle the topic's stickiness with `toggle_sticky()`.
+- Given a subject name and board, return the topic id for the matching topic with `get_topic_id`.
+- Use the advanced search feature, and return the list of matches with `advanced_search()`.
+- Given a board, return the topic id for all currently stickied topics with `get_stickied_posts()`.
 
 ## Installation
 `pip install simplemachinesforum`
@@ -50,3 +58,32 @@ and python version and explain how to reproduce the error. A demo script is appr
 ## Contributing
 `python-simplemachinesforum` is an open source project which welcomes contributions which can be anything from simple 
 documentation fixes to new features. To contribute, fork the project on [GitHub](https://github.com/oliver-zehentleitner/python-simplemachinesforum) and send a pull request.
+
+### Contributors
+[![Contributors](https://contributors-img.web.app/image?repo=oliver-zehentleitner/python-simplemachinesforum)](https://github.com/oliver-zehentleitner/python-simplemachinesforum/graphs/contributors)
+
+We ![love](https://s3.gifyu.com/images/heartae002231c41d8a80.png) open source!
+
+## Commercial Support
+Need a Python developer or consulting? 
+
+Contact [me](https://about.me/oliver-zehentleitner) for a non-binding and free consultation via my company 
+[LUCIT](https://www.lucit.dev) from Vienna (Austria).
+
+### Donate
+Since you are probably a developer yourself, you will understand very well that the creation of open source software is 
+not free - it requires technical knowledge, a lot of time and also financial expenditure.
+
+If you would like to help me to dedicate my time and energy to this project, even small donations are very welcome.
+
+[![Donate using Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/oliver-zehentleitner/donate)
+
+```
+BTC: 39fS74fvcGnmEk8JUV8bG6P1wkdH29GtsA
+LUNA: terra1ncjg4a59x2pgvqy9qjyqprlj8lrwshm0wleht5 (Memo: 108157985)
+DASH: XsRhBuPkXGF9WvifdpkVhTGSmVT4VcuQZ7
+ETH: 0x1C15857Bf1E18D122dDd1E536705748aa529fc9C
+LTC: LYNzHMFUbee3siyHvNCPaCjqXxjyq8YRGJ
+XMR: 85dzsTRh6GRPGVSJoUbFDwAf9uwwAdim1HFpiGshLeKHgj2hVqKtYVPXMZvudioLsuLS1AegkUiQ12jwReRwWcFvF7kDAbF
+ZEC: t1WvQMPJMriGWD9qkZGDdE9tTJaawvmsBie
+```

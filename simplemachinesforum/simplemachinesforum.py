@@ -49,7 +49,8 @@ class SimpleMachinesForumAuth(object):
         self.session = session
         self.smf_session_id = None
         self.smf_random_input = None
-        self.headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0 Waterfox/56.4' }
+        self.headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) '
+                                      'Gecko/20100101 Firefox/56.0 Waterfox/56.4'}
 
     def __enter__(self):
         return self.login()
@@ -58,7 +59,7 @@ class SimpleMachinesForumAuth(object):
         """
         Login to the account
         """
-        #set sessions headers
+        # set sessions headers
         self.session.headers.update(self.headers)
 
         # login method
@@ -77,7 +78,7 @@ class SimpleMachinesForumAuth(object):
             'cookielength': -1,
             self.smf_random_input: self.smf_session_id,
         }
-        #prevent redirects since a correct response will have one, an incorrect response will just return 200
+        # prevent redirects since a correct response will have one, an incorrect response will just return 200
         response = self.session.post(self.smf_info.smf_url + login_url2, data=payload, allow_redirects=False)
 
         if response.status_code != 302:
@@ -93,10 +94,10 @@ class SimpleMachinesForumAuth(object):
         Logout from the account
         """
         get_url = "index.php?action=logout;"+str(self.smf_random_input)+"="+str(self.smf_session_id)
-        #prevent redirects since a correct response will have one, an incorrect response will just return 200
+        # prevent redirects since a correct response will have one, an incorrect response will just return 200
         response = self.session.get(self.smf_info.smf_url + get_url, allow_redirects=False)
 
-        #you have to wait 2 seconds between login attempts
+        # you have to wait 2 seconds between login attempts
         time.sleep(3)
         if response is None or response.status_code!=302:
             raise Exception("Unable to logout of account\n\n=======\n"+str(response.content))
@@ -118,7 +119,7 @@ class SimpleMachinesForum(object):
         self.smf_url = smf_url
         self.smf_user = smf_user
         self.smf_pass = smf_pass
-        #to ensure we don't start the bot in a bad state (already logged in), preemptively try to log out
+        # to ensure we don't start the bot in a bad state (already logged in), preemptively try to log out
         with requests.session() as session:
             auth = SimpleMachinesForumAuth(self, session)
             try:
@@ -274,13 +275,13 @@ class SimpleMachinesForum(object):
         topics = soup.find_all("div", class_="search_results_posts")
         results = []
         
-        #return the list of topic ids
+        # return the list of topic ids
         for topic_elems in topics:
             topic_sub = topic_elems.find("div", class_="topic_details floatleft").find("h5")
             topic_urls = topic_sub.find_all("a")
             topic_urls_filtered = []
             for topic in topic_urls:
-                #exclude the threadTag url
+                # exclude the threadTag url
                 if "class" not in topic.attrs:
                     topic_urls_filtered.append(topic)
             topic_url = topic_urls_filtered[-1]["href"]
@@ -328,18 +329,18 @@ class SimpleMachinesForum(object):
                                'all': '',
                                'subject_only': subject_only,
                                'submit': 'Search'}
-                    #add all the board id's to the payload
+                    # add all the board id's to the payload
                     for board in boards:
                         payload["brd["+str(board)+"]"] = board
 
-                    #parse the first page
+                    # parse the first page
                     response = session.post(self.smf_url + post_url1, data=payload)
                     if not response:
                         return None
                     soup = BeautifulSoup(str(response.content), 'lxml')
                     results += self.advanced_search_singlepage(soup)
 
-                    #get the max offset page and the params
+                    # get the max offset page and the params
                     pages = soup.find("div", class_="pagesection")
                     navpages = pages.find_all("a", class_="navPages")
                     if len(navpages) > 0:
@@ -347,12 +348,12 @@ class SimpleMachinesForum(object):
                         max_offset = int(navpage_url[navpage_url.rindex("start=")+6:])
                         params = navpage_url[navpage_url.rindex("params=")+7:navpage_url.rindex(";start=")]
 
-                    #parse the next number of pages
+                    # parse the next number of pages
                     while offset < max_offset:
                         get_url1 = post_url1 + ";params=" + params + ";start=" + str(offset)
                         response = session.get(self.smf_url + get_url1)
                         
-                        #parse this page
+                        # parse this page
                         soup = BeautifulSoup(str(response.content), 'lxml')
                         results += self.advanced_search_singlepage(soup)
                         
@@ -366,6 +367,7 @@ class SimpleMachinesForum(object):
     def get_stickied_posts(self, board):
         """
         Given a board, return the topic id for all currently stickied topics
+
         :param board: The board ID (e.g. '1')
         :type board: int
         :return: the topic ids, or None on error
@@ -377,21 +379,21 @@ class SimpleMachinesForum(object):
         # a login is necessary for reading in case the board is in maintenance mode
         with requests.session() as session:
             with SimpleMachinesForumAuth(self, session) as auth:
-                #only need to check the first page
+                # only need to check the first page
                 try:
-                    #grab the page
+                    # grab the page
                     get_url = "index.php?board=" + str(board) + ".0"
                     response = session.get(self.smf_url + get_url)
                     if not response:
                         return None
 
-                    #parse the page
+                    # parse the page
                     soup = BeautifulSoup(str(response.content), 'lxml')
                     
-                    #look for any topics marked as sticky
+                    # look for any topics marked as sticky
                     topics = soup.find("table", class_="table_grid").find("tbody").find_all("tr")
                     for topic in topics:
-                        #ignore the background tr element
+                        # ignore the background tr element
                         if "class" in topic.attrs:
                             continue
 
