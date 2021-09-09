@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 0.4.1.dev (development stage/unreleased)
 ## 0.4.1
 ### Fixed
-- 404 images on PyPi
+- 404 images on PyPi.
 
 ## 0.4.0
 ### Added
