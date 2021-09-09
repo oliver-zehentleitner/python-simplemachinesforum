@@ -62,7 +62,7 @@ documentation fixes to new features. To contribute, fork the project on [GitHub]
 ### Contributors
 [![Contributors](https://contributors-img.web.app/image?repo=oliver-zehentleitner/python-simplemachinesforum)](https://github.com/oliver-zehentleitner/python-simplemachinesforum/graphs/contributors)
 
-We ![love](https://s3.gifyu.com/images/heartae002231c41d8a80.png) open source!
+We ![love](https://raw.githubusercontent.com/oliver-zehentleitner/python-simplemachinesforum/master/images/misc/heart.png) open source!
 
 ## Commercial Support
 Need a Python developer or consulting? 
@@ -79,8 +79,8 @@ If you would like to help me to dedicate my time and energy to this project, eve
 [![Donate using Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/oliver-zehentleitner/donate)
 
 ```
+Terra (LUNA, UST, ...): terra1yt34qmmycextztnj9mpt3mnjzqqvl8jtqqq7g9
 BTC: 39fS74fvcGnmEk8JUV8bG6P1wkdH29GtsA
-LUNA: terra1ncjg4a59x2pgvqy9qjyqprlj8lrwshm0wleht5 (Memo: 108157985)
 DASH: XsRhBuPkXGF9WvifdpkVhTGSmVT4VcuQZ7
 ETH: 0x1C15857Bf1E18D122dDd1E536705748aa529fc9C
 LTC: LYNzHMFUbee3siyHvNCPaCjqXxjyq8YRGJ
