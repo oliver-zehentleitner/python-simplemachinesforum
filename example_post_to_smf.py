@@ -4,9 +4,9 @@ from simplemachinesforum.simplemachinesforum import SimpleMachinesForum
 import random
 
 # config
-smf_url = "https://s2.demo.opensourcecms.com/smf/"
-smf_user = "opensourcecms"
-smf_pass = "opensourcecms"
+smf_url = "https://any-smf-board.com/smf/"
+smf_user = ""
+smf_pass = ""
 
 # create instance
 smf = SimpleMachinesForum(smf_url, smf_user, smf_pass)
