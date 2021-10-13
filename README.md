@@ -6,7 +6,7 @@
 ![PyPI - yes](https://img.shields.io/badge/PyPI-yes-brightgreen.svg?color=orange) 
 ![PyPI - Wheel](https://img.shields.io/pypi/wheel/simplemachinesforum.svg?label=PyPI%20wheel&color=orange) 
 [![Downloads](https://pepy.tech/badge/simplemachinesforum)](https://pepy.tech/project/simplemachinesforum)
-[![Downloads](https://pepy.tech/badge/simplemachinesforum/month)](https://pepy.tech/project/simplemachinesforum/month)
+[![Downloads](https://pepy.tech/badge/simplemachinesforum/month)](https://pepy.tech/project/simplemachinesforum)
 [![Donations/week](http://img.shields.io/liberapay/receives/oliver-zehentleitner.svg?logo=liberapay)](https://liberapay.com/oliver-zehentleitner/donate)
 [![Patrons](http://img.shields.io/liberapay/patrons/oliver-zehentleitner.svg?logo=liberapay")](https://liberapay.com/oliver-zehentleitner/donate)
 
