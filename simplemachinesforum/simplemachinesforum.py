@@ -9,7 +9,7 @@
 # Author: Oliver Zehentleitner
 #         https://about.me/oliver-zehentleitner
 #
-# Copyright (c) 2019, Oliver Zehentleitner
+# Copyright (c) 2019-2022, Oliver Zehentleitner
 # All rights reserved.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
@@ -35,6 +35,7 @@ import requests
 import re
 from bs4 import BeautifulSoup
 import time
+
 
 class SimpleMachinesForumAuth(object):
     """
