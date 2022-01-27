@@ -64,12 +64,6 @@ documentation fixes to new features. To contribute, fork the project on [GitHub]
 
 We ![love](https://raw.githubusercontent.com/oliver-zehentleitner/python-simplemachinesforum/master/images/misc/heart.png) open source!
 
-## Commercial Support
-Need a Python developer or consulting? 
-
-Contact [me](https://about.me/oliver-zehentleitner) for a non-binding and free consultation via my company 
-[LUCIT](https://www.lucit.dev) from Vienna (Austria).
-
 ### Donate
 Since you are probably a developer yourself, you will understand very well that the creation of open source software is 
 not free - it requires technical knowledge, a lot of time and also financial expenditure.
@@ -77,6 +71,8 @@ not free - it requires technical knowledge, a lot of time and also financial exp
 If you would like to help me to dedicate my time and energy to this project, even small donations are very welcome.
 
 [![Donate using Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/oliver-zehentleitner/donate)
+
+[:heart: Sponsor (GitHub)](https://github.com/sponsors/oliver-zehentleitner/)
 
 ```
 Terra (LUNA, UST, ...): terra1yt34qmmycextztnj9mpt3mnjzqqvl8jtqqq7g9
@@ -87,3 +83,10 @@ LTC: LYNzHMFUbee3siyHvNCPaCjqXxjyq8YRGJ
 XMR: 85dzsTRh6GRPGVSJoUbFDwAf9uwwAdim1HFpiGshLeKHgj2hVqKtYVPXMZvudioLsuLS1AegkUiQ12jwReRwWcFvF7kDAbF
 ZEC: t1WvQMPJMriGWD9qkZGDdE9tTJaawvmsBie
 ```
+## Commercial Support
+[![LUCIT](https://www.lucit.tech/files/images/logos/LUCIT-LOGO-TRANS-PLAIN-NEW.png)](https://www.lucit.tech)
+
+***Do you need a developer, operator or consultant?***
+
+Contact [me](https://about.me/oliver-zehentleitner) for a non-binding initial consultation via my company 
+[LUCIT](https://www.lucit.tech) from Vienna (Austria) or via [Telegram](https://t.me/LUCIT_OZ).
