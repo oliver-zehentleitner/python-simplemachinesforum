@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>python-simplemachinesforum &#8212; python-simplemachinesforum 0.4.1 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>python-simplemachinesforum &#8212; python-simplemachinesforum 0.4.2 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css" />
     
@@ -19,7 +20,7 @@
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="MIT License" href="copyright.html" />
     <link rel="prev" title="Welcome to python-simplemachinesforum’s documentation!" href="index.html" />
-    <link rel="shortcut icon" type="image/png" href="_static/py.png" />
+    <link rel="shortcut icon" type="image/png" href="_static/lucit.png" />
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     
     <script type="text/javascript" src="_static/copybutton.js"></script>
@@ -43,12 +44,12 @@
           <a href="index.html" title="Welcome to python-simplemachinesforum’s documentation!"
              accesskey="P">previous</a> |</li>
     
-    <li><img src="_static/github-logo.png" alt=""
+    <li><img src="_static/lucit.png" alt="LUCIT Logo"
              style="vertical-align: middle; margin-top: -1px"/></li>
-    <li><a href="https://github.com/oliver-zehentleitner/python-simplemachinesforum">python-simplemachinesforum</a> &#187;</li>
+    <li><a href="https://www.lucit.tech/python-simplemachinesforum.html">python-simplemachinesforum</a> &#187;</li>
     
     
-    <a href="index.html">python-simplemachinesforum 0.4.1 documentation</a> &#187;
+    <a href="index.html">python-simplemachinesforum 0.4.2 documentation</a> &#187;
     
 
         <li class="nav-item nav-item-this"><a href="">python-simplemachinesforum</a></li>
@@ -77,14 +78,14 @@
 <a class="reference external" href="https://pepy.tech/project/simplemachinesforum"><img alt="Downloads" src="https://pepy.tech/badge/simplemachinesforum/month" /></a>
 <a class="reference external" href="https://liberapay.com/oliver-zehentleitner/donate"><img alt="Donations/week" src="http://img.shields.io/liberapay/receives/oliver-zehentleitner.svg?logo=liberapay" /></a>
 <a class="reference external" href="https://liberapay.com/oliver-zehentleitner/donate"><img alt="Patrons" src="http://img.shields.io/liberapay/patrons/oliver-zehentleitner.svg?logo=liberapay%22" /></a></p>
-<div class="section" id="python-simplemachinesforum">
+<section id="python-simplemachinesforum">
 <h1>python-simplemachinesforum<a class="headerlink" href="#python-simplemachinesforum" title="Permalink to this headline">¶</a></h1>
 <p>Python request API to Simple Machines Forum: https://www.simplemachines.org/</p>
-<div class="section" id="important">
+<section id="important">
 <h2>Important<a class="headerlink" href="#important" title="Permalink to this headline">¶</a></h2>
 <p>A forum is for humans, please use this piece of software only in combination with YOUR OWN FORUM or by order of the forum owner itself to provide a valuable service. Be aware that bots are not tolerated on most boards and its use will lead to a ban.</p>
-</div>
-<div class="section" id="what-does-it-can">
+</section>
+<section id="what-does-it-can">
 <h2>What does it can?<a class="headerlink" href="#what-does-it-can" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>It can create a new topic with <code class="docutils literal notranslate"><span class="pre">new_topic()</span></code> on a remote simple machines forum over the network, all it needs is a valid user account to login.</p></li>
@@ -93,13 +94,13 @@
 <li><p>Use the advanced search feature, and return the list of matches with <code class="docutils literal notranslate"><span class="pre">advanced_search()</span></code>.</p></li>
 <li><p>Given a board, return the topic id for all currently stickied topics with <code class="docutils literal notranslate"><span class="pre">get_stickied_posts()</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="installation">
+</section>
+<section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">simplemachinesforum</span></code></p>
 <p><a class="reference external" href="https://pypi.org/project/simplemachinesforum/">https://pypi.org/project/simplemachinesforum/</a></p>
-</div>
-<div class="section" id="how-to-create-a-new-topic">
+</section>
+<section id="how-to-create-a-new-topic">
 <h2>How to create a new topic?<a class="headerlink" href="#how-to-create-a-new-topic" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">simplemachinesforum.simplemachinesforum</span> <span class="kn">import</span> <span class="n">SimpleMachinesForum</span>
 <span class="n">smf_url</span> <span class="o">=</span> <span class="s2">&quot;https://www.any-simplemachinesforum.com&quot;</span>
@@ -110,37 +111,37 @@
 <span class="n">smf</span><span class="o">.</span><span class="n">new_topic</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;This is the message to post!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="documentation">
+</section>
+<section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://oliver-zehentleitner.github.io/python-simplemachinesforum/">https://oliver-zehentleitner.github.io/python-simplemachinesforum/</a></p>
-</div>
-<div class="section" id="project-code-and-downloads">
+</section>
+<section id="project-code-and-downloads">
 <h2>Project, code and downloads:<a class="headerlink" href="#project-code-and-downloads" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/oliver-zehentleitner/python-simplemachinesforum">https://github.com/oliver-zehentleitner/python-simplemachinesforum</a></p>
-</div>
-<div class="section" id="wiki">
+</section>
+<section id="wiki">
 <h2>Wiki<a class="headerlink" href="#wiki" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/oliver-zehentleitner/python-simplemachinesforum/wiki">https://github.com/oliver-zehentleitner/python-simplemachinesforum/wiki</a></p>
-</div>
-<div class="section" id="how-to-report-bugs-or-suggest-improvements">
+</section>
+<section id="how-to-report-bugs-or-suggest-improvements">
 <h2>How to report bugs or suggest improvements?<a class="headerlink" href="#how-to-report-bugs-or-suggest-improvements" title="Permalink to this headline">¶</a></h2>
 <p>Please open a new issue:
 <a class="reference external" href="https://github.com/oliver-zehentleitner/python-simplemachinesforum/issues">https://github.com/oliver-zehentleitner/python-simplemachinesforum/issues</a></p>
 <p>If you report a bug, try first the latest release via <a class="reference external" href="https://github.com/oliver-zehentleitner/python-simplemachinesforum/releases">download</a>
 or with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">simplemachinesforum</span> <span class="pre">--upgrade</span></code>. If the issue still exists, provide the error trace, OS
 and python version and explain how to reproduce the error. A demo script is appreciated.</p>
-</div>
-<div class="section" id="contributing">
+</section>
+<section id="contributing">
 <h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">python-simplemachinesforum</span></code> is an open source project which welcomes contributions which can be anything from simple
 documentation fixes to new features. To contribute, fork the project on <a class="reference external" href="https://github.com/oliver-zehentleitner/python-simplemachinesforum">GitHub</a> and send a pull request.</p>
-<div class="section" id="contributors">
+<section id="contributors">
 <h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://github.com/oliver-zehentleitner/python-simplemachinesforum/graphs/contributors"><img alt="Contributors" src="https://contributors-img.web.app/image?repo=oliver-zehentleitner/python-simplemachinesforum" /></a></p>
 <p>We <img alt="love" src="https://raw.githubusercontent.com/oliver-zehentleitner/python-simplemachinesforum/master/images/misc/heart.png" /> open source!</p>
-</div>
-<div class="section" id="donate">
+</section>
+<section id="donate">
 <h3>Donate<a class="headerlink" href="#donate" title="Permalink to this headline">¶</a></h3>
 <p>Since you are probably a developer yourself, you will understand very well that the creation of open source software is
 not free - it requires technical knowledge, a lot of time and also financial expenditure.</p>
@@ -156,16 +157,16 @@ not free - it requires technical knowledge, a lot of time and also financial exp
 <span class="n">ZEC</span><span class="p">:</span> <span class="n">t1WvQMPJMriGWD9qkZGDdE9tTJaawvmsBie</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="commercial-support">
+</section>
+</section>
+<section id="commercial-support">
 <h2>Commercial Support<a class="headerlink" href="#commercial-support" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://www.lucit.tech"><img alt="LUCIT" src="https://www.lucit.tech/files/images/logos/LUCIT-LOGO-TRANS-PLAIN-NEW.png" /></a></p>
 <p><em><strong>Do you need a developer, operator or consultant?</strong></em></p>
 <p>Contact <a class="reference external" href="https://about.me/oliver-zehentleitner">me</a> for a non-binding initial consultation via my company
 <a class="reference external" href="https://www.lucit.tech">LUCIT</a> from Vienna (Austria) or via <a class="reference external" href="https://t.me/LUCIT_OZ">Telegram</a>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -174,8 +175,9 @@ not free - it requires technical knowledge, a lot of time and also financial exp
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">python-simplemachinesforum</a><ul>
 <li><a class="reference internal" href="#important">Important</a></li>
 <li><a class="reference internal" href="#what-does-it-can">What does it can?</a></li>
@@ -195,12 +197,17 @@ not free - it requires technical knowledge, a lot of time and also financial exp
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">Welcome to python-simplemachinesforum’s documentation!</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="copyright.html"
-                        title="next chapter">MIT License</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">Welcome to python-simplemachinesforum’s documentation!</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="copyright.html"
+                          title="next chapter">MIT License</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -208,18 +215,12 @@ not free - it requires technical knowledge, a lot of time and also financial exp
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-<br />
-    
+    <div role="note" aria-label="source code">
+        <h3>GitHub</h3>
+        <ul class="this-page-menu">
+          <li><a href="https://github.com/oliver-zehentleitner/python-simplemachinesforum">Show Source</a></li>
+          
+<li>
 <a class="github-button" href="https://github.com/oliver-zehentleitner/python-simplemachinesforum"
    data-icon="octicon-star" data-show-count="true"
    aria-label="Star oliver-zehentleitner/python-simplemachinesforum on GitHub">Star</a>
@@ -236,7 +237,29 @@ not free - it requires technical knowledge, a lot of time and also financial exp
    data-icon="octicon-issue-opened"
    data-show-count="true" aria-label="Issue oliver-zehentleitner/python-simplemachinesforum on GitHub">Issue</a>
     
+</li>
 
+        </ul>
+    </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+<br />
+
+<div style="text-align: center">
+    <br>
+    <a href="https://www.lucit.tech"><img src="https://www.lucit.tech/files/images/logos/LUCIT-LOGO.png"></a>
+    <p>
+        <a href="https://www.lucit.tech/trading-tools.html" style="font-size: 0.85em;font-weight: 900">Get customized trading software!</a>
+    </p>
+</div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -257,12 +280,12 @@ not free - it requires technical knowledge, a lot of time and also financial exp
           <a href="index.html" title="Welcome to python-simplemachinesforum’s documentation!"
              >previous</a> |</li>
     
-    <li><img src="_static/github-logo.png" alt=""
+    <li><img src="_static/lucit.png" alt="LUCIT Logo"
              style="vertical-align: middle; margin-top: -1px"/></li>
-    <li><a href="https://github.com/oliver-zehentleitner/python-simplemachinesforum">python-simplemachinesforum</a> &#187;</li>
+    <li><a href="https://www.lucit.tech/python-simplemachinesforum.html">python-simplemachinesforum</a> &#187;</li>
     
     
-    <a href="index.html">python-simplemachinesforum 0.4.1 documentation</a> &#187;
+    <a href="index.html">python-simplemachinesforum 0.4.2 documentation</a> &#187;
     
 
         <li class="nav-item nav-item-this"><a href="">python-simplemachinesforum</a></li>
@@ -281,7 +304,7 @@ not free - it requires technical knowledge, a lot of time and also financial exp
         &copy; <a href="copyright.html">Copyright</a> 2019-2022, Oliver Zehentleitner.
         <br />
 
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 4.3.2
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 4.4.0
         with <a href="https://github.com/oliver-zehentleitner/python-docs-theme-technopathy">python-docs-theme-technopathy</a>
         by <a href="https://www.lucit.tech">LUCIT Systems and Development</a>
     </div>
