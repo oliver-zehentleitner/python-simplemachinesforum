@@ -10,6 +10,8 @@
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/oliver-zehentleitner/python-simplemachinesforum.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/oliver-zehentleitner/python-simplemachinesforum/alerts/)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/oliver-zehentleitner/python-simplemachinesforum.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/oliver-zehentleitner/python-simplemachinesforum/context:python)
 [![Azure Pipelines](https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/simplemachinesforum-feedstock?branchName=main)](https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15723&branchName=main)
+[![Read the Docs](https://img.shields.io/badge/read-%20docs-orange)](https://oliver-zehentleitner.github.io/python-simplemachinesforum/)
+[![Github](https://img.shields.io/badge/source-github-orange)](https://github.com/oliver-zehentleitner/python-simplemachinesforum)
 [![Donations/week](http://img.shields.io/liberapay/receives/oliver-zehentleitner.svg?logo=liberapay)](https://liberapay.com/oliver-zehentleitner/donate)
 [![Patrons](http://img.shields.io/liberapay/patrons/oliver-zehentleitner.svg?logo=liberapay")](https://liberapay.com/oliver-zehentleitner/donate)
 [![Gitter](https://badges.gitter.im/python-simplemachinesforum/community.svg)](https://gitter.im/python-simplemachinesforum/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
@@ -88,11 +90,7 @@ If you would like to help me to dedicate my time and energy to this project, eve
 ```
 Terra (LUNA, UST, ...): terra1yt34qmmycextztnj9mpt3mnjzqqvl8jtqqq7g9
 BTC: 39fS74fvcGnmEk8JUV8bG6P1wkdH29GtsA
-DASH: XsRhBuPkXGF9WvifdpkVhTGSmVT4VcuQZ7
 ETH: 0x1C15857Bf1E18D122dDd1E536705748aa529fc9C
-LTC: LYNzHMFUbee3siyHvNCPaCjqXxjyq8YRGJ
-XMR: 85dzsTRh6GRPGVSJoUbFDwAf9uwwAdim1HFpiGshLeKHgj2hVqKtYVPXMZvudioLsuLS1AegkUiQ12jwReRwWcFvF7kDAbF
-ZEC: t1WvQMPJMriGWD9qkZGDdE9tTJaawvmsBie
 ```
 ## Commercial Support
 [![LUCIT](https://www.lucit.tech/files/images/logos/LUCIT-LOGO-TRANS-PLAIN-NEW.png)](https://www.lucit.tech)
