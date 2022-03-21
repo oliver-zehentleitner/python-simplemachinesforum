@@ -1,15 +1,20 @@
-![GitHub release](https://img.shields.io/github/release/oliver-zehentleitner/python-simplemachinesforum.svg) 
+[![GitHub Release](https://img.shields.io/github/release/oliver-zehentleitner/python-simplemachinesforum.svg?label=github)](https://github.com/oliver-zehentleitner/python-simplemachinesforum/releases)
+[![GitHub Downloads](https://img.shields.io/github/downloads/oliver-zehentleitner/python-simplemachinesforum/total?color=blue)](https://github.com/oliver-zehentleitner/python-simplemachinesforum/releases)
+[![Conda Release](https://img.shields.io/conda/vn/conda-forge/simplemachinesforum.svg?color=blue)](https://anaconda.org/conda-forge/simplemachinesforum)
+[![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/simplemachinesforum.svg?color=blue)](https://anaconda.org/conda-forge/simplemachinesforum)
+[![PyPi Release](https://img.shields.io/pypi/v/simplemachinesforum?color=blue)](https://pypi.org/project/simplemachinesforum/)
+[![PyPi Downloads](https://pepy.tech/badge/simplemachinesforum)](https://pepy.tech/project/simplemachinesforum)
 ![GitHub](https://img.shields.io/github/license/oliver-zehentleitner/python-simplemachinesforum.svg?color=blue) 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/simplemachinesforum.svg) 
 ![PyPI - Status](https://img.shields.io/pypi/status/simplemachinesforum.svg) 
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/oliver-zehentleitner/python-simplemachinesforum.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/oliver-zehentleitner/python-simplemachinesforum/alerts/)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/oliver-zehentleitner/python-simplemachinesforum.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/oliver-zehentleitner/python-simplemachinesforum/context:python)
-![PyPI - yes](https://img.shields.io/badge/PyPI-yes-brightgreen.svg?color=orange) 
-![PyPI - Wheel](https://img.shields.io/pypi/wheel/simplemachinesforum.svg?label=PyPI%20wheel&color=orange) 
-[![Downloads](https://pepy.tech/badge/simplemachinesforum)](https://pepy.tech/project/simplemachinesforum)
-[![Downloads](https://pepy.tech/badge/simplemachinesforum/month)](https://pepy.tech/project/simplemachinesforum)
+[![Azure Pipelines](https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/simplemachinesforum-feedstock?branchName=main)](https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15723&branchName=main)
+[![Read the Docs](https://img.shields.io/badge/read-%20docs-orange)](https://oliver-zehentleitner.github.io/python-simplemachinesforum/)
+[![Github](https://img.shields.io/badge/source-github-orange)](https://github.com/oliver-zehentleitner/python-simplemachinesforum)
 [![Donations/week](http://img.shields.io/liberapay/receives/oliver-zehentleitner.svg?logo=liberapay)](https://liberapay.com/oliver-zehentleitner/donate)
 [![Patrons](http://img.shields.io/liberapay/patrons/oliver-zehentleitner.svg?logo=liberapay")](https://liberapay.com/oliver-zehentleitner/donate)
+[![Gitter](https://badges.gitter.im/python-simplemachinesforum/community.svg)](https://gitter.im/python-simplemachinesforum/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 # python-simplemachinesforum
 Python request API to Simple Machines Forum: https://www.simplemachines.org/
@@ -25,9 +30,16 @@ A forum is for humans, please use this piece of software only in combination wit
 - Given a board, return the topic id for all currently stickied topics with `get_stickied_posts()`.
 
 ## Installation
+### PyPI
 `pip install simplemachinesforum`
 
 [https://pypi.org/project/simplemachinesforum/](https://pypi.org/project/simplemachinesforum/)
+
+### Conda
+`conda install -c conda-forge simplemachinesforum`
+
+[https://anaconda.org/conda-forge/simplemachinesforum](https://anaconda.org/conda-forge/simplemachinesforum)
+
 ## How to create a new topic?
 ```
 from simplemachinesforum.simplemachinesforum import SimpleMachinesForum
@@ -78,11 +90,7 @@ If you would like to help me to dedicate my time and energy to this project, eve
 ```
 Terra (LUNA, UST, ...): terra1yt34qmmycextztnj9mpt3mnjzqqvl8jtqqq7g9
 BTC: 39fS74fvcGnmEk8JUV8bG6P1wkdH29GtsA
-DASH: XsRhBuPkXGF9WvifdpkVhTGSmVT4VcuQZ7
 ETH: 0x1C15857Bf1E18D122dDd1E536705748aa529fc9C
-LTC: LYNzHMFUbee3siyHvNCPaCjqXxjyq8YRGJ
-XMR: 85dzsTRh6GRPGVSJoUbFDwAf9uwwAdim1HFpiGshLeKHgj2hVqKtYVPXMZvudioLsuLS1AegkUiQ12jwReRwWcFvF7kDAbF
-ZEC: t1WvQMPJMriGWD9qkZGDdE9tTJaawvmsBie
 ```
 ## Commercial Support
 [![LUCIT](https://www.lucit.tech/files/images/logos/LUCIT-LOGO-TRANS-PLAIN-NEW.png)](https://www.lucit.tech)
@@ -90,4 +98,4 @@ ZEC: t1WvQMPJMriGWD9qkZGDdE9tTJaawvmsBie
 ***Do you need a developer, operator or consultant?***
 
 Contact [me](https://about.me/oliver-zehentleitner) for a non-binding initial consultation via my company 
-[LUCIT](https://www.lucit.tech) from Vienna (Austria) or via [Telegram](https://t.me/LUCIT_OZ).
+[LUCIT](https://www.lucit.tech) from Vienna (Austria) or via [Telegram](https://t.me/LUCIT_OZ)/[WhatsApp](https://wa.me/436602456535).
