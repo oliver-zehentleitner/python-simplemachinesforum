@@ -59,7 +59,6 @@ setuptools.setup(
          "License :: OSI Approved :: MIT License",
          'Intended Audience :: Developers',
          "Operating System :: OS Independent",
-         "Programming Language :: Python :: 2",
          "Programming Language :: Python :: 3",
          'Topic :: Software Development :: Libraries :: Python Modules',
      ],
