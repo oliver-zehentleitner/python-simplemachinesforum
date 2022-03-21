@@ -1,15 +1,18 @@
-![GitHub release](https://img.shields.io/github/release/oliver-zehentleitner/python-simplemachinesforum.svg) 
+[![GitHub Release](https://img.shields.io/github/release/oliver-zehentleitner/python-simplemachinesforum.svg?label=github)](https://github.com/oliver-zehentleitner/python-simplemachinesforum/releases)
+[![GitHub Downloads](https://img.shields.io/github/downloads/oliver-zehentleitner/python-simplemachinesforum/total?color=blue)](https://github.com/oliver-zehentleitner/python-simplemachinesforum/releases)
+[![Conda Release](https://img.shields.io/conda/vn/conda-forge/simplemachinesforum.svg?color=blue)](https://anaconda.org/conda-forge/simplemachinesforum)
+[![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/simplemachinesforum.svg?color=blue)](https://anaconda.org/conda-forge/simplemachinesforum)
+[![PyPi Release](https://img.shields.io/pypi/v/simplemachinesforum?color=blue)](https://pypi.org/project/simplemachinesforum/)
+[![PyPi Downloads](https://pepy.tech/badge/simplemachinesforum)](https://pepy.tech/project/simplemachinesforum)
 ![GitHub](https://img.shields.io/github/license/oliver-zehentleitner/python-simplemachinesforum.svg?color=blue) 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/simplemachinesforum.svg) 
 ![PyPI - Status](https://img.shields.io/pypi/status/simplemachinesforum.svg) 
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/oliver-zehentleitner/python-simplemachinesforum.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/oliver-zehentleitner/python-simplemachinesforum/alerts/)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/oliver-zehentleitner/python-simplemachinesforum.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/oliver-zehentleitner/python-simplemachinesforum/context:python)
-![PyPI - yes](https://img.shields.io/badge/PyPI-yes-brightgreen.svg?color=orange) 
-![PyPI - Wheel](https://img.shields.io/pypi/wheel/simplemachinesforum.svg?label=PyPI%20wheel&color=orange) 
-[![Downloads](https://pepy.tech/badge/simplemachinesforum)](https://pepy.tech/project/simplemachinesforum)
-[![Downloads](https://pepy.tech/badge/simplemachinesforum/month)](https://pepy.tech/project/simplemachinesforum)
+[![Azure Pipelines](https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/simplemachinesforum-feedstock?branchName=main)](https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15723&branchName=main)
 [![Donations/week](http://img.shields.io/liberapay/receives/oliver-zehentleitner.svg?logo=liberapay)](https://liberapay.com/oliver-zehentleitner/donate)
 [![Patrons](http://img.shields.io/liberapay/patrons/oliver-zehentleitner.svg?logo=liberapay")](https://liberapay.com/oliver-zehentleitner/donate)
+[![Gitter](https://badges.gitter.im/python-simplemachinesforum/community.svg)](https://gitter.im/python-simplemachinesforum/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 # python-simplemachinesforum
 Python request API to Simple Machines Forum: https://www.simplemachines.org/

@@ -52,6 +52,7 @@ setuptools.setup(
          'Author': 'https://about.me/oliver-zehentleitner/',
          'Changes': 'https://github.com/oliver-zehentleitner/python-simplemachinesforum/blob/master/CHANGELOG.md',
          'Issue Tracker': 'https://github.com/oliver-zehentleitner/python-simplemachinesforum/issues',
+         'Chat': 'https://gitter.im/python-simplemachinesforum/community',
      },
      packages=setuptools.find_packages(),
      classifiers=[
