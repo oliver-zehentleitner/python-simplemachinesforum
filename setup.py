@@ -44,7 +44,7 @@ setuptools.setup(
      long_description=long_description,
      long_description_content_type="text/markdown",
      license='MIT License',
-     install_requires=['requests'],
+     install_requires=['requests', 'bs4'],
      keywords='simple machines forum, python, new post, create post, simplemachinesforum, api',
      project_urls={
          'Wiki': 'https://github.com/oliver-zehentleitner/python-simplemachinesforum/wiki',
