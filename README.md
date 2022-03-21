@@ -28,9 +28,16 @@ A forum is for humans, please use this piece of software only in combination wit
 - Given a board, return the topic id for all currently stickied topics with `get_stickied_posts()`.
 
 ## Installation
+### PyPI
 `pip install simplemachinesforum`
 
 [https://pypi.org/project/simplemachinesforum/](https://pypi.org/project/simplemachinesforum/)
+
+### Conda
+`conda install -c conda-forge simplemachinesforum`
+
+[https://anaconda.org/conda-forge/simplemachinesforum](https://anaconda.org/conda-forge/simplemachinesforum)
+
 ## How to create a new topic?
 ```
 from simplemachinesforum.simplemachinesforum import SimpleMachinesForum
