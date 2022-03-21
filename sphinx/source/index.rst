@@ -10,6 +10,7 @@ Welcome to python-simplemachinesforum's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   Modules <modules.rst>
    Readme <README.md>
    Copyright <copyright.rst>
 
