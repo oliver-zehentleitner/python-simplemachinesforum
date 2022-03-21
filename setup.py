@@ -48,6 +48,10 @@ setuptools.setup(
      keywords='simple machines forum, python, new post, create post, simplemachinesforum, api',
      project_urls={
          'Wiki': 'https://github.com/oliver-zehentleitner/python-simplemachinesforum/wiki',
+         'Documentation': 'https://oliver-zehentleitner.github.io/python-simplemachinesforum',
+         'Author': 'https://about.me/oliver-zehentleitner/',
+         'Changes': 'https://github.com/oliver-zehentleitner/python-simplemachinesforum/blob/master/CHANGELOG.md',
+         'Issue Tracker': 'https://github.com/oliver-zehentleitner/python-simplemachinesforum/issues',
      },
      packages=setuptools.find_packages(),
      classifiers=[
