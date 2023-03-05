@@ -7,6 +7,7 @@
 ![GitHub](https://img.shields.io/github/license/oliver-zehentleitner/python-simplemachinesforum.svg?color=blue) 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/simplemachinesforum.svg) 
 ![PyPI - Status](https://img.shields.io/pypi/status/simplemachinesforum.svg) 
+[![CodeQL](https://github.com/oliver-zehentleitner/python-simplemachinesforum/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/oliver-zehentleitner/python-simplemachinesforum/actions/workflows/github-code-scanning/codeql)
 [![Azure Pipelines](https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/simplemachinesforum-feedstock?branchName=main)](https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15723&branchName=main)
 [![Read the Docs](https://img.shields.io/badge/read-%20docs-orange)](https://oliver-zehentleitner.github.io/python-simplemachinesforum/)
 [![Github](https://img.shields.io/badge/source-github-orange)](https://github.com/oliver-zehentleitner/python-simplemachinesforum)
