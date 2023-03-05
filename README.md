@@ -88,14 +88,11 @@ If you would like to help me to dedicate my time and energy to this project, eve
 [:heart: Sponsor (GitHub)](https://github.com/sponsors/oliver-zehentleitner/)
 
 ```
-Terra (LUNA, UST, ...): terra1yt34qmmycextztnj9mpt3mnjzqqvl8jtqqq7g9
 BTC: 39fS74fvcGnmEk8JUV8bG6P1wkdH29GtsA
 ETH: 0x1C15857Bf1E18D122dDd1E536705748aa529fc9C
 ```
+
 ## Commercial Support
-[![LUCIT](https://www.lucit.tech/files/images/logos/LUCIT-LOGO-TRANS-PLAIN-NEW.png)](https://www.lucit.tech)
+[![Get professional and fast support](https://raw.githubusercontent.com/LUCIT-Systems-and-Development/unicorn-binance-suite/master/images/support/LUCIT-get-professional-and-fast-support.png)](https://www.lucit.tech/get-support.html)
 
-***Do you need a developer, operator or consultant?***
-
-Contact [me](https://about.me/oliver-zehentleitner) for a non-binding initial consultation via my company 
-[LUCIT](https://www.lucit.tech) from Vienna (Austria) or via [Telegram](https://t.me/LUCIT_OZ)/[WhatsApp](https://wa.me/436602456535).
+***Do you need a developer, operator or consultant?*** [Contact us](https://www.lucit.tech/contact.html) for a non-binding initial consultation!
