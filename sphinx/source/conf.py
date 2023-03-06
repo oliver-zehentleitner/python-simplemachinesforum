@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 # -- Project information -----------------------------------------------------
 
 project = 'python-simplemachinesforum'
-copyright = '2019-2022, Oliver Zehentleitner'
+copyright = '2019-2023, Oliver Zehentleitner'
 author = 'Oliver Zehentleitner'
 
 # The full version, including alpha/beta/rc tags
@@ -62,5 +62,6 @@ html_context = {'github_repo_name': 'python-simplemachinesforum',
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+language = "en"
 
 # -- Extension configuration -------------------------------------------------
