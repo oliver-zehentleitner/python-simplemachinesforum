@@ -53,7 +53,7 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'python_docs_theme_technopathy'
+html_theme = 'python_docs_theme_lucit'
 html_context = {'github_repo_name': 'python-simplemachinesforum',
                 'github_user_name': 'oliver-zehentleitner',
                 'project_name': project}
