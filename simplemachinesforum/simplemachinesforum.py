@@ -9,7 +9,7 @@
 # Author: Oliver Zehentleitner
 #         https://about.me/oliver-zehentleitner
 #
-# Copyright (c) 2019-2022, Oliver Zehentleitner
+# Copyright (c) 2019-2023, Oliver Zehentleitner
 # All rights reserved.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
@@ -272,7 +272,16 @@ class SimpleMachinesForum(object):
                     except ValueError:
                         return None
 
-    def advanced_search_singlepage(self, soup):
+    def _advanced_search_singlepage(self, soup):
+        """
+        Advanced search singlepage is used by advanced_search()
+
+        :param soup:
+        :type soup: BeautifulSoup
+        :return:
+        :rtype: list
+
+        """
         topics = soup.find_all("div", class_="search_results_posts")
         results = []
         
@@ -339,7 +348,7 @@ class SimpleMachinesForum(object):
                     if not response:
                         return None
                     soup = BeautifulSoup(str(response.content), 'lxml')
-                    results += self.advanced_search_singlepage(soup)
+                    results += self._advanced_search_singlepage(soup)
 
                     # get the max offset page and the params
                     pages = soup.find("div", class_="pagesection")
@@ -356,7 +365,7 @@ class SimpleMachinesForum(object):
                         
                         # parse this page
                         soup = BeautifulSoup(str(response.content), 'lxml')
-                        results += self.advanced_search_singlepage(soup)
+                        results += self._advanced_search_singlepage(soup)
                         
                         offset += 30
                         
