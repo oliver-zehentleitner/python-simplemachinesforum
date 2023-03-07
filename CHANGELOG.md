@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## 0.4.4.dev (development stage/unreleased)
+## 0.4.5.dev (development stage/unreleased)
+
+## 0.4.5
+### Changed
+- Making `advanced_search_singlepage()` private
 
 ## 0.4.4
 ### Fixed

@@ -9,7 +9,7 @@
 # Author: Oliver Zehentleitner
 #         https://about.me/oliver-zehentleitner
 #
-# Copyright (c) 2019-2021, Oliver Zehentleitner
+# Copyright (c) 2019-2023, Oliver Zehentleitner
 # All rights reserved.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
@@ -37,7 +37,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
      name='simplemachinesforum',
-     version='0.4.4',
+     version='0.4.5',
      author="Oliver Zehentleitner",
      url="https://github.com/oliver-zehentleitner/python-simplemachinesforum",
      description="Python request API to simplemachinesforum",
@@ -53,6 +53,7 @@ setuptools.setup(
          'Changes': 'https://github.com/oliver-zehentleitner/python-simplemachinesforum/blob/master/CHANGELOG.md',
          'Issue Tracker': 'https://github.com/oliver-zehentleitner/python-simplemachinesforum/issues',
          'Chat': 'https://gitter.im/python-simplemachinesforum/community',
+         'Get Support': 'https://www.lucit.tech/get-support.html',
      },
      packages=setuptools.find_packages(),
      classifiers=[
