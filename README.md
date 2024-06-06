@@ -4,7 +4,7 @@
 [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/simplemachinesforum.svg?color=blue)](https://anaconda.org/conda-forge/simplemachinesforum)
 [![PyPi Release](https://img.shields.io/pypi/v/simplemachinesforum?color=blue)](https://pypi.org/project/simplemachinesforum/)
 [![PyPi Downloads](https://pepy.tech/badge/simplemachinesforum)](https://pepy.tech/project/simplemachinesforum)
-![GitHub](https://img.shields.io/github/license/oliver-zehentleitner/python-simplemachinesforum.svg?color=blue) 
+![License](https://img.shields.io/github/license/oliver-zehentleitner/python-simplemachinesforum.svg?color=blue) 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/simplemachinesforum.svg) 
 ![PyPI - Status](https://img.shields.io/pypi/status/simplemachinesforum.svg) 
 [![CodeQL](https://github.com/oliver-zehentleitner/python-simplemachinesforum/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/oliver-zehentleitner/python-simplemachinesforum/actions/workflows/github-code-scanning/codeql)
