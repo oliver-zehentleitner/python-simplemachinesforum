@@ -13,7 +13,6 @@
 [![Github](https://img.shields.io/badge/source-github-orange)](https://github.com/oliver-zehentleitner/python-simplemachinesforum)
 [![Donations/week](http://img.shields.io/liberapay/receives/oliver-zehentleitner.svg?logo=liberapay)](https://liberapay.com/oliver-zehentleitner/donate)
 [![Patrons](http://img.shields.io/liberapay/patrons/oliver-zehentleitner.svg?logo=liberapay")](https://liberapay.com/oliver-zehentleitner/donate)
-[![Gitter](https://badges.gitter.im/python-simplemachinesforum/community.svg)](https://gitter.im/python-simplemachinesforum/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 # python-simplemachinesforum
 Python request API to Simple Machines Forum: https://www.simplemachines.org/
