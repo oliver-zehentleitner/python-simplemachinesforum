@@ -75,23 +75,3 @@ documentation fixes to new features. To contribute, fork the project on [GitHub]
 [![Contributors](https://contributors-img.web.app/image?repo=oliver-zehentleitner/python-simplemachinesforum)](https://github.com/oliver-zehentleitner/python-simplemachinesforum/graphs/contributors)
 
 We ![love](https://raw.githubusercontent.com/oliver-zehentleitner/python-simplemachinesforum/master/images/misc/heart.png) open source!
-
-### Donate
-Since you are probably a developer yourself, you will understand very well that the creation of open source software is 
-not free - it requires technical knowledge, a lot of time and also financial expenditure.
-
-If you would like to help me to dedicate my time and energy to this project, even small donations are very welcome.
-
-[![Donate using Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/oliver-zehentleitner/donate)
-
-[:heart: Sponsor (GitHub)](https://github.com/sponsors/oliver-zehentleitner/)
-
-```
-BTC: 39fS74fvcGnmEk8JUV8bG6P1wkdH29GtsA
-ETH: 0x1C15857Bf1E18D122dDd1E536705748aa529fc9C
-```
-
-## Commercial Support
-[![Get professional and fast support](https://raw.githubusercontent.com/LUCIT-Systems-and-Development/unicorn-binance-suite/master/images/support/LUCIT-get-professional-and-fast-support.png)](https://www.lucit.tech/get-support.html)
-
-***Do you need a developer, operator or consultant?*** [Contact us](https://www.lucit.tech/contact.html) for a non-binding initial consultation!
